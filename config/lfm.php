@@ -43,9 +43,13 @@ return [
 
     // Which folder to store files in project, fill in 'public', 'resources', 'storage' and so on.
     // You should create routes to serve images if it is not set to public.
-    'base_directory' => '../uploads',
+    'base_directory' => 'public',
 
-    'images_folder_name' => '',
+    // 'images_folder_name' => '',
+    // 'files_folder_name'  => 'files/',
+    // 'shared_folder_name' => 'shared/',
+    // 'thumb_folder_name'  => 'thumbs/',
+    'images_folder_name' => 'uploads/',
     'files_folder_name'  => 'files/',
     'shared_folder_name' => 'shared/',
     'thumb_folder_name'  => 'thumbs/',
