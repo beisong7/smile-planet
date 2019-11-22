@@ -1,5 +1,9 @@
 /node_modules
-/public
+/public/hot
+/public/storage
+/public/uploads
+/public/mg
+/public/vendor
 /storage/*.key
 /vendor
 /mg

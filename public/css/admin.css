@@ -1,0 +1,76 @@
+#login{
+    background-size: cover;
+    background-color: #687EA3;
+    height: 100vh;
+    width: 100%;
+    color: #fff;
+}
+.holder-signin{
+    width: 100%;height: 100%;
+    /*background-color: rgba(1, 0, 13, 0.52);*/
+}
+
+.centr{margin: 0 auto}
+.seetru{background-color: rgba(61,62,70,0.51)}
+.size1{font-size: 14px;}
+.smspace{margin: 5px;}
+body{font-size: 14px;}
+.nav-admin{
+    background-color: rgba(13, 27, 42, 0.93);
+    border-radius: 0;
+    margin: 0;
+}
+.nav-admin a{color: #fff}
+.nav-admin a:hover{color: #b0aeac;}
+.notice{border-radius: 50%; background-color: red; color: #fff;margin-left: -6px;
+    top:-3px;position: absolute}
+.normal-a{text-decoration: none; color: #222;}
+.normal-a:hover{text-decoration: none; color: #5e617c;}
+.side-quick{padding: 4px 13px; border: solid 1px rgba(249, 253, 255, 0.64); border-radius: 4px; color: #fff;}
+.side-quick:hover{
+    background-color: rgba(249, 253, 255, 0.22);
+}
+.list-unstyled{padding: 0; margin: 0;}
+.dashboard{
+    background-color: rgba(0, 2, 40, 0.68);
+    color: #fff;
+    border-radius: 0;
+    margin-bottom: 1px;
+}
+.asnav{
+    width: 20%;
+    min-width: 200px;
+    border-radius: 0;
+    border-left: solid 1px #e2e6ea;
+    border-right: solid 1px #e2e6ea;
+    padding-left: 0px;
+}
+
+
+.ambody{
+    width: 80%;
+    min-width: 200px;
+    padding: 0 15px;
+    border-right: solid 1px #e2e6ea;
+}
+.imactive{
+    background-color: #e2e6ea;
+}
+
+
+/* I STARTED HERE*/
+.mylink{
+    padding: 2px;
+    background-color: #ea9100;
+    color: #333;
+    border-radius: 2px;
+}
+.mylink:hover{text-decoration: none}
+.white{color:#fff}
+.white:hover{
+    color:orange;
+    text-decoration: none;
+}
+.img-fit{
+    width: 100%;
+}

@@ -1,0 +1,3 @@
+$(document).ready(function(){ // When page is fully loaded...
+    $('.preload').fadeOut(); // hide preloader
+});
