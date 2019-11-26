@@ -44,7 +44,7 @@
                 <div class="footer_links">
                     <div class="footer_title">Useful Links</div>
                     <ul class="footer_list">
-                        <?php $numCos = 0; ?>
+                        <?php $numCos = 1; ?>
                         @foreach($courses as $course)
                             @if($numCos <=1)
                                 <?php $numCos++; ?>
