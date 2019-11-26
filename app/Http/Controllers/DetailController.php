@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Detail;
+use App\Pform;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -14,10 +15,17 @@ class DetailController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $details = Detail::select(['title', 'link', 'type', 'creator_id', 'created_at', 'active'])->paginate(15);
 
+        if(empty($request->input())){
+            $details = Detail::select(['title', 'link', 'type', 'creator_id', 'created_at', 'active'])->paginate(15);
+        }
+        else{
+            $type = $request->input('type');
+            $details = Detail::where('type', $type)->select(['title', 'link', 'type', 'creator_id', 'created_at', 'active'])->paginate(15);
+
+        }
 
         return view('admin.pages.content.v2.index')->with('details', $details);
     }
@@ -109,6 +117,7 @@ class DetailController extends Controller
         $detail->image = $image;
         $detail->creator_id = Auth::user()->id;
         $detail->type = $request->input('type');
+        $detail->use_reg = $request->input('use_reg');
 
 
 
@@ -219,6 +228,7 @@ class DetailController extends Controller
 
             $detail->type = $request->input('type');
             $detail->relative = $request->input('relative');
+            $detail->use_reg = $request->input('use_reg');
 
             $detail->update();
 
@@ -254,4 +264,66 @@ class DetailController extends Controller
         return back()->withMessage("Operation Successful, Details now ". $msg);
 
     }
+
+    public function coursereg($link, $type){
+        //find the course, if it exist and is active, continue else terminate
+        $course = Detail::where('type', $type)->where('link', $link)->where('use_reg', 'yes')->where('active', true)->first();
+        if(!empty($course)){
+            return view('v2.page.forms.course_reg')->with('course', $course);
+        }
+        return back()->withMessage("Not found");
+    }
+
+    public function complete_course_reg(Request $request, $link, $type){
+        //find the course, if it exist and is active, continue else terminate
+        $course = Detail::where('type', $type)->where('link', $link)->where('use_reg', 'yes')->where('active', true)->first();
+        if(!empty($course)){
+
+            $email = $request->input('email');
+
+            $exist = Pform::where('email', $email)->where('active', true)->first();
+
+            if(empty($exist)){
+                $pform = new Pform();
+                $pform->first_name = $request->input('first_name');
+                $pform->surname = $request->input('surname');
+                $pform->other_name = $request->input('other_name');
+                $pform->email = $email;
+                $pform->phone = $request->input('phone');
+                $pform->bus_type = $request->input('bus_type');
+                $pform->bus_name = $request->input('bus_name');
+                $pform->bus_category = $request->input('bus_category');
+                $pform->bus_phone = $request->input('bus_phone');
+                $pform->bus_email = $request->input('bus_email');
+                $pform->bus_address = $request->input('bus_address');
+                $pform->num_employee = $request->input('num_employee');
+                $pform->bus_certs = $this->mashUp($request->input('bus_certs'));
+                $pform->prog_attended = $request->input('prog_attended');
+                $pform->seen = false;
+                $pform->active = true;
+                $pform->time = time();
+                $pform->detail_link = $link;
+                $pform->detail_type = $type;
+
+                $pform->save();
+
+                //send email to client
+
+                return redirect()->route('detail.course.reg', [$link, $type])->withMessage('Your application has been submitted successfully.');
+            }
+            return back()->withErrors(array('error'=>"You already applied before for this course."));
+        }
+        return back()->withErrors(array('error'=>'Registration failed. Try again.'));
+    }
+
+    public function mashUp($certs){
+        $out = '';
+        if(!empty($certs)){
+            foreach ($certs as $cert){
+                $out.=$cert.', ';
+            }
+        }
+        return $out;
+    }
 }
+

@@ -17,15 +17,13 @@ $pagename = '<a href="'.$kurl.'"><b>Edit Contents</b></a>  <span style="margin-l
 
         <small class="gray">Showing list of all Contents </small>
 
-        <br style="margin: 0;padding: 0;">
-        {{ $details->links() }}
-        <br>
 
         <div class="panel panel-default">
             <div class="panel-heading">
 
                 @if(intval(Auth::user()->who)===4)
                     <a href="{{ route('new.detail') }}" class="btn btn-xs btn-default">New Content</a>
+                    <a href="{{ route('content.v2') }}" class="btn btn-xs btn-default">All Content</a>
                 @endif
 
             </div>
@@ -62,7 +60,7 @@ $pagename = '<a href="'.$kurl.'"><b>Edit Contents</b></a>  <span style="margin-l
                             </td>
 
                             <td>
-                                {{ $detail->type }}
+                                <a title="View only {{ $detail->type }}" href="{{ route('content.v2', ['type'=>$detail->type])  }}">{{ $detail->type }}</a>
                             </td>
                             <td title="">
                                 {{ $detail->creator->fullname }}
@@ -97,6 +95,10 @@ $pagename = '<a href="'.$kurl.'"><b>Edit Contents</b></a>  <span style="margin-l
                 </table>
             </div>
         </div>
+
+        <br style="margin: 0;padding: 0;">
+        {{ $details->links() }}
+        <br>
 
 
 

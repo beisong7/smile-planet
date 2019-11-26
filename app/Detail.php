@@ -15,6 +15,7 @@ class Detail extends Model
         'type',
         'relative',
         'creator_id',
+        'use_reg',
         'active',
     ];
 

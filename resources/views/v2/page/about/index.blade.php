@@ -37,6 +37,7 @@
                            <p class="mb-4">{!! $details->info !!}</p>
                        </div>
                    </div>
+                   @include('v2.component.course_reg_btn')
                </div>
 
                <br>
@@ -65,6 +66,8 @@
                        @endforeach
                    </div>
                @endif
+
+
            </div>
        </div>
 

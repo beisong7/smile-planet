@@ -547,6 +547,17 @@
 	{
 		font-size: 18px;
 	}
+
+	.home {
+		height: 30vh;
+	}
+
+	.home_container{
+		top:100px;
+	}
+	.home_logo{
+		display: none;
+	}
 }
 
 /************

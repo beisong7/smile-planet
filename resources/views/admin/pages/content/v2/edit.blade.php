@@ -55,6 +55,17 @@ $pagename = '<a href="'.$kurl.'"><b>Edit Contents</b></a>  <span style="margin-l
                             <img src="{{ url('uploads/'.$detail->image) }}" alt="" class="image_src img-fit" id="imgtoshow" style="max-height: 250px">
                         </div>
                     </div>
+                    <div class="col-sm-3">
+                        <p></p>
+                    </div>
+                    <div class="col-sm-3">
+                        <p><b>Content Configurations</b></p>
+                        <div class="" style="padding-left: 30px">
+                            <p class="text-muted">Use Registration?</p>
+                            <input type="radio" name="use_reg" value="no" {{ $detail->use_reg==='no'?'checked':'' }}> No
+                            <input type="radio" name="use_reg" value="yes" {{ $detail->use_reg==='yes'?'checked':'' }}> Yes
+                        </div>
+                    </div>
                 </div>
                 <div class="form-group" >
                     <p>Details of Title</p>

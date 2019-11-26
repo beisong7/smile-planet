@@ -18,7 +18,7 @@ class Counter extends Model
         $today = strtotime('today');
         $visits = Counter::where('ip','=', $ip)->where('time', '>=', $today)->first();
 
-        if(!empty($visits) && count($visits)>0){
+        if(!empty($visits) && $visits->count()>0){
             $visits->update($data);
             Hit::create($data);
         }else{

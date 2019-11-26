@@ -33,9 +33,8 @@
                 <div class="footer_links">
                     <div class="footer_title">Quick menu</div>
                     <ul class="footer_list">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Services</a></li>
+                        <li><a href="{{ route('home') }}">Home</a></li>
+                        <!--<li><a href="#">Services</a></li>-->
                         <li><a href="{{ route('home.contact') }}">Contact</a></li>
                     </ul>
                 </div>
@@ -45,7 +44,15 @@
                 <div class="footer_links">
                     <div class="footer_title">Useful Links</div>
                     <ul class="footer_list">
-                        <li><a href="#">Courses</a></li>
+                        <?php $numCos = 0; ?>
+                        @foreach($courses as $course)
+                            @if($numCos <=1)
+                                <?php $numCos++; ?>
+                                <li><a href="{{ route('home.about',['type'=>$course->type, 'link'=>$course->link ]) }}">Courses</a></li>
+
+                            @endif
+                        @endforeach
+
                         <li><a href="http://events.smileplanetef.org">Events</a></li>
                         <li><a href="http://foundation.smileplanetef.org">Foundation</a></li>
                         <li><a href="#">FAQ</a></li>

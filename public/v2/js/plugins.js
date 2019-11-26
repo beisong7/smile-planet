@@ -29,6 +29,6 @@ const magicText =(cname)=>{
 
 let aux = 1;
 $.each($('.ml2'), function (a, b) {
-    magicText('.ml2'+aux)
+    // magicText('.ml2'+aux)
     aux++
 })

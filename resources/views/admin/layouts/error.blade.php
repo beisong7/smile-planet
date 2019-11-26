@@ -14,7 +14,7 @@
 @if(session('message'))
     <br>
     <div class="alert alert-success">
-
+        <i class="fa fa-info-circle"></i>
         {!! session('message') !!}
     </div>
 

@@ -150,7 +150,7 @@ class HomeController extends Controller
 
     public function contact(){
 
-        return view('pages.contact');
+        return view('v2.page.contact.index');
     }
 
     public function vision(){

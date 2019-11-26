@@ -67,6 +67,10 @@ Route::group(['middleware'=> 'count'], function(){
     Route::get('/entrepreneur/course_list/{title}', 'EntrepreneurController@coursedetails')->name('e.courses.details');
     Route::get('/entrepreneur/course_reg/{title}', 'EntrepreneurController@coursereg')->name('e.course.reg');
 
+    Route::get('/entrepreneur/reg/course/{link}/{type}', 'DetailController@coursereg')->name('detail.course.reg');
+
+    Route::post('/entrepreneur/reg/save/course/{link}/{type}', 'DetailController@complete_course_reg')->name('complete.course.reg');
+
     Route::get('/foundation/album/{title}', 'FoundationController@album_view')->name('f.album_view');
 
     Route::get('/foundation/albums', 'FoundationController@albums')->name('f.albums');
