@@ -20,11 +20,11 @@ class DetailController extends Controller
 
         if(!empty($request->input('type'))){
             $type = $request->input('type');
-            $details = Detail::where('type', $type)->select(['title', 'link', 'type', 'creator_id', 'created_at', 'active'])->paginate(15);
+            $details = Detail::orderBy('id','DESC')->where('type', $type)->select(['title', 'link', 'type', 'creator_id', 'created_at', 'active'])->paginate(15);
         }
         else{
 
-            $details = Detail::select(['title', 'link', 'type', 'creator_id', 'created_at', 'active'])->paginate(15);
+            $details = Detail::orderBy('id','DESC')->select(['title', 'link', 'type', 'creator_id', 'created_at', 'active'])->paginate(15);
 
 
         }
