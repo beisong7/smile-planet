@@ -47,11 +47,11 @@
                            <div class="form-group mt-4 mb-5">
                                <div class="row">
                                    <div class="mb-2 col-md-6 col-sm-12">
-                                       <b>First Name</b>
+                                       <b>* First Name </b>
                                        <input type="text" class="form-control" placeholder="First Name" name="first_name" autocomplete="off" required>
                                    </div>
                                    <div class="mb-2 col-md-6 col-sm-12">
-                                       <b>Surname</b>
+                                       <b>* Surname </b>
                                        <input type="text" class="form-control" placeholder="Surname" name="surname" autocomplete="off" required>
                                    </div>
                                    <div class="mb-2 col-md-6 col-sm-12">
@@ -59,11 +59,11 @@
                                        <input type="text" class="form-control" placeholder="Other Name" name="other_name" autocomplete="off">
                                    </div>
                                    <div class="mb-2 col-md-6 col-sm-12">
-                                       <b>Your Email</b>
+                                       <b>* Your Email </b>
                                        <input type="email" class="form-control" placeholder="Your Email" name="email" autocomplete="off" required>
                                    </div>
                                    <div class="mb-2 col-md-6 col-sm-12">
-                                       <b>Phone Number</b>
+                                       <b>* Phone Number </b>
                                        <input type="text" class="form-control" placeholder="Phone Number" name="phone" autocomplete="off" required>
                                    </div>
                                </div>
@@ -77,7 +77,7 @@
                            <div class="form-group mt-4">
                                <div class="row">
                                    <div class=" col-md-6 col-sm-12">
-                                       <b>Is your business a startup or Existing already?</b>
+                                       <b>* Is your business a startup or Existing already?</b>
                                        <br>
                                        Idea <input type="radio" value="idea" name="bus_type" style="margin-right: 10px" required>
                                        Start-Up <input type="radio" value="start_up" name="bus_type" style="margin-right: 10px" required>
