@@ -18,12 +18,14 @@ class DetailController extends Controller
     public function index(Request $request)
     {
 
-        if(empty($request->input())){
-            $details = Detail::select(['title', 'link', 'type', 'creator_id', 'created_at', 'active'])->paginate(15);
-        }
-        else{
+        if(!empty($request->input('type'))){
             $type = $request->input('type');
             $details = Detail::where('type', $type)->select(['title', 'link', 'type', 'creator_id', 'created_at', 'active'])->paginate(15);
+        }
+        else{
+
+            $details = Detail::select(['title', 'link', 'type', 'creator_id', 'created_at', 'active'])->paginate(15);
+
 
         }
 
