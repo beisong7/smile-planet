@@ -22,6 +22,7 @@ class Count
         View::share('abouts', Detail::where('active',true)->where('type', 'about')->select(['link', 'type', 'title'])->get());
         View::share('courses', Detail::where('active',true)->where('type', 'courses')->select(['link', 'type', 'title'])->get());
         View::share('vocations', Detail::where('active',true)->where('type', 'vocations')->select(['link', 'type', 'title'])->get());
+        View::share('services', Detail::where('active',true)->where('type', 'services')->select(['link', 'type', 'title'])->get());
 
         if ($request->isMethod('get')){
 

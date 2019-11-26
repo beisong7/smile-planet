@@ -309,11 +309,12 @@ class DetailController extends Controller
 
                 //send email to client
 
-                return redirect()->route('detail.course.reg', [$link, $type])->withMessage('Your application has been submitted successfully.');
+                $msg = "Thank You for indicate interest in this course/Training you will be contact within 12Hours by our program coordinator through a call. You welcome to Smile Planet. For further enquires kindly call +2347033461426, +2349098002014 ";
+                return redirect()->route('detail.course.reg', [$link, $type])->withMessage($msg);
             }
             return back()->withErrors(array('error'=>"You already applied before for this course."));
         }
-        return back()->withErrors(array('error'=>'Registration failed. Try again.'));
+        return back()->withErrors(array('error'=>'Registration failed. Refresh page and Try again.'));
     }
 
     public function mashUp($certs){

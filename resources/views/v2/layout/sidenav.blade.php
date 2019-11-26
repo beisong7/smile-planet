@@ -28,6 +28,10 @@
                 </a>
                 <!-- Here's the magic. Add the .animate and .slide-in classes to your .dropdown-menu and you're all set! -->
                 <div class="dropdown-menu dropdown-menu-right animate slideIn" aria-labelledby="navbarDropdown">
+                    @foreach($services as $service)
+                        <a class="dropdown-item" href="{{ route('home.about',['type'=>$service->type, 'link'=>$service->link ]) }}">{{ ucwords($service->title) }}</a>
+                    @endforeach
+                    <!--
                     <a class="dropdown-item" href="#">Training</a>
                     <a class="dropdown-item" href="#">Business coaching</a>
                     <a class="dropdown-item" href="#">Business consulting</a>
@@ -35,6 +39,7 @@
                     <a class="dropdown-item" href="#">Digital marketing</a>
                     <a class="dropdown-item" href="#">Cooporate training</a>
                     <a class="dropdown-item" href="#">Human Resource MGT</a>
+                    -->
 
                 </div>
             </li>

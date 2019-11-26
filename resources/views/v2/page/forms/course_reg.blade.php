@@ -59,7 +59,7 @@
                                        <input type="text" class="form-control" placeholder="Other Name" name="other_name" autocomplete="off">
                                    </div>
                                    <div class="mb-2 col-md-6 col-sm-12">
-                                       <b>Your Email</b>Your Email
+                                       <b>Your Email</b>
                                        <input type="email" class="form-control" placeholder="Your Email" name="email" autocomplete="off" required>
                                    </div>
                                    <div class="mb-2 col-md-6 col-sm-12">
@@ -70,7 +70,7 @@
                            </div>
 
                            <hr class="mt-5">
-                           <small>Business/Company Information | Tell us about your business</small>
+                           <small>Business / Company Information | Tell us about your business</small>
                            <br>
                            <hr>
 
@@ -93,7 +93,11 @@
                                    </div>
                                    <div class="mb-2 col-md-6 col-sm-12">
                                        <b>Business Category</b>
-                                       <input type="text" class="form-control" placeholder="Business Category" name="bus_category" autocomplete="off">
+                                       <select name="bus_category" id="" class="form-control">
+                                           <option value="" disabled selected>please select</option>
+                                           <option value="More than 100">More than 100</option>
+                                       </select>
+
                                    </div>
                                    <div class="mb-2 col-md-6 col-sm-12">
                                        <b>Business Phone Number</b>
@@ -109,7 +113,14 @@
                                    </div>
                                    <div class="mb-2 col-md-6 col-sm-12">
                                        <b>Number of Employee</b>
-                                       <input type="text" class="form-control" placeholder="Number of Employee" name="num_employee" autocomplete="off">
+                                       <select name="num_employee" id="" class="form-control">
+                                           <option value="" disabled selected>please select</option>
+                                           <option value="1-20">1-20</option>
+                                           <option value="21-50">21-50</option>
+                                           <option value="51-100">51-100</option>
+                                           <option value="More than 100">More than 100</option>
+                                       </select>
+
                                    </div>
 
                                </div>
@@ -118,17 +129,13 @@
                            <div class="form-group ">
                                <div class="row">
                                    <p class="col-md-12"><b>Which of the following does your business have?</b></p>
-                                   <div class="mb-2 col-sm-12">
-                                       <input type="checkbox" name="bus_certs[]" value="CAC_Certificae" class="ml-3"> <span>CAC Certificae</span>
-                                       <input type="checkbox" name="bus_certs[]" value="NAFDAC_Certificae" class="ml-3"> <span>NAFDAC Certificae</span>
-                                       <input type="checkbox" name="bus_certs[]" value="SON_Certificae" class="ml-3"> <span>SON Certificae</span>
-                                       <input type="checkbox" name="bus_certs[]" value="TIN_&_FIRS_Certificae" class="ml-3"> <span>TIN & FIRS Certificae</span>
-                                   </div>
-                                   <div class="mb-2 col-sm-12">
-                                       <input type="checkbox" name="bus_certs[]" value="Export/Import_Certificae" class="ml-3"> <span>Export/Import Certificae</span>
-                                       <input type="checkbox" name="bus_certs[]" value="Others" class="ml-3"> <span>Others</span>
-                                       <input type="checkbox" name="bus_certs[]" value="None" class="ml-3"> <span>None</span>
-                                   </div>
+                                   <div class="mb-2 col-md-4 col-sm-12 "><input type="checkbox" name="bus_certs[]" value="CAC_Certificate" class="ml-3"> <span>CAC Certificate</span></div>
+                                   <div class="mb-2 col-md-4 col-sm-12 "><input type="checkbox" name="bus_certs[]" value="NAFDAC_Certificate" class="ml-3"> <span>NAFDAC Certificate</span></div>
+                                   <div class="mb-2 col-md-4 col-sm-12 "><input type="checkbox" name="bus_certs[]" value="SON_Certificate" class="ml-3"> <span>SON Certificate</span></div>
+                                   <div class="mb-2 col-md-4 col-sm-12 "><input type="checkbox" name="bus_certs[]" value="TIN_&_FIRS_Certificate" class="ml-3"> <span>TIN & FIRS Certificate</span></div>
+                                   <div class="mb-2 col-md-4 col-sm-12 "><input type="checkbox" name="bus_certs[]" value="Export/Import_Certificate" class="ml-3"> <span>Export/Import Certificate</span></div>
+                                   <div class="mb-2 col-md-4 col-sm-12 "><input type="checkbox" name="bus_certs[]" value="Others" class="ml-3"> <span>Others</span></div>
+                                   <div class="mb-2 col-md-4 col-sm-12 "><input type="checkbox" name="bus_certs[]" value="None" class="ml-3"> <span>None</span></div>
                                </div>
                            </div>
                            <div class="form-group ">
