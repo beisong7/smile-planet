@@ -352,7 +352,7 @@ $jslinks = ['print.js?v='.$req['version']=0.03];
                                 <p class=""><b>Courses Able To Teach</b></p>
                                 <hr>
                                 @foreach(explode('_', $person->extra->courset) as $value)
-                                    <li class="col-sm-4">{{ $person->courseTitle($value)->title }}</li>
+                                    <li class="col-sm-4">{{ $person->courseTitle($value) }}</li>
                                 @endforeach
                             </td>
                         </tr>

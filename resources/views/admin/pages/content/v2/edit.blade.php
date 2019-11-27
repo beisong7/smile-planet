@@ -23,6 +23,10 @@ $pagename = '<a href="'.$kurl.'"><b>Edit Contents</b></a>  <span style="margin-l
 
         <div class="container">
 
+            <a href="{{ route('detail.make.featured', $detail->link) }}" class="btn btn-info">{{ $detail->featured?'Remove Featured':'Make Featured' }} </a>
+            <a href="{{ route('detail.make.mainFeatured', $detail->link) }}" class="btn btn-info">{{ $detail->featured1?'Remove Main Featured':'Make Main Featured' }} </a>
+            <hr>
+
             <form action="{{route('new.detail.update', $detail->link)}}" method="post" class="form-horizontal" role="form" id="wysiwyg" enctype="multipart/form-data">
                 {{csrf_field()}}
 

@@ -69,6 +69,9 @@ Route::group(['middleware'=> 'count'], function(){
 
     Route::get('/entrepreneur/reg/course/{link}/{type}', 'DetailController@coursereg')->name('detail.course.reg');
 
+    Route::get('detail/elevate/make/featured/{link}', 'DetailController@makeFeatured')->name('detail.make.featured');
+    Route::get('detail/elevate/make/main-featured/{link}', 'DetailController@makeMainFeatured')->name('detail.make.mainFeatured');
+
     Route::post('/entrepreneur/reg/save/course/{link}/{type}', 'DetailController@complete_course_reg')->name('complete.course.reg');
 
     Route::get('/foundation/album/{title}', 'FoundationController@album_view')->name('f.album_view');
@@ -261,6 +264,8 @@ Route::group(['middleware'=> 'admin'], function(){
     Route::get('/console/application/facilitators', 'ConsoleController@facilitator')->name('console.app.fac');
 
     Route::get('/console/application/volunteer', 'ConsoleController@volunteer')->name('console.app.vol');
+
+    Route::get('/console/application/enrollments', 'ConsoleController@enrollments')->name('console.enrollment');
 
     Route::get('/console/application/sponsorship', 'ConsoleController@sponsorship')->name('console.app.spo');
 

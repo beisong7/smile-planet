@@ -328,5 +328,40 @@ class DetailController extends Controller
         }
         return $out;
     }
+
+    public function makeFeatured($link){
+        $item = Detail::where('link', $link)->first();
+        if(!empty($item)){
+            if($item->featured){
+                $item->featured = false;
+            }else{
+                $item->featured = true;
+            }
+            $item->update();
+            return back()->withMessage($item->title.' has been updated');
+        }
+        return back()->withErrors(array('error'=>'No match found'));
+    }
+    public function makeMainFeatured($link){
+        $item = Detail::where('link', $link)->first();
+        if(!empty($item)){
+            //remove any previous main
+            $oldMain = Detail::where('featured1', true)->first();
+            if(!empty($oldMain)){
+                $oldMain->featured1 = false;
+                $oldMain->update();
+            }
+
+            //assign new
+            if($item->featured1){
+                $item->featured1 = false;
+            }else{
+                $item->featured1 = true;
+            }
+            $item->update();
+            return back()->withMessage($item->title.' has been updated');
+        }
+        return back()->withErrors(array('error'=>'No match found'));
+    }
 }
 

@@ -13,6 +13,8 @@ class Detail extends Model
         'link',
         'image',
         'type',
+        'featured',
+        'featured1',
         'relative',
         'creator_id',
         'use_reg',

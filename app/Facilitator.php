@@ -30,7 +30,11 @@ class Facilitator extends Model
         }
     }
 
-    public function courseTitle($id){
-        return Course::find(intval($id));
+    public function courseTitle($title){
+        $course = Course::where('title', $title)->first();
+        if(empty($course)){
+           return "Course with title ( $title ) Not Found";
+        }
+        return $course->title;
     }
 }

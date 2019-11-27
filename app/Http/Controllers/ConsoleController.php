@@ -13,6 +13,7 @@ use App\Facilitator;
 use App\Focus;
 use App\Gallery;
 use App\Partner;
+use App\Pform;
 use App\Program;
 use App\Tube;
 use App\User;
@@ -362,7 +363,7 @@ class ConsoleController extends Controller
 
 
     public function facilitator(){
-        $facilitators = Facilitator::all();
+        $facilitators = Facilitator::paginate(30);
         return view('admin.pages.application.facilitators')
             ->with('facilitators', $facilitators);
     }
@@ -828,6 +829,12 @@ class ConsoleController extends Controller
             return back()->withErrors(array('message'=> 'Unable to complete, try again later'));
         }
 
+    }
+
+    public function enrollments(){
+        $enrollments = Pform::paginate(30);
+        return view('admin.pages.application.enrollments')
+            ->with('enrollments', $enrollments);
     }
 
 

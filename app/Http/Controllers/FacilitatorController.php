@@ -263,8 +263,13 @@ class FacilitatorController extends Controller
     }
 
     public function preview(Facilitator $facilitator){
-        return view('admin.pages.application.fac_preview')
-            ->with('person', $facilitator);
+//        return $facilitator;
+        if(!empty($facilitator)){
+            return view('admin.pages.application.fac_preview')
+                ->with('person', $facilitator);
+        }
+        return back()->withErrors(array('error'=>'No Resource Found'));
+
     }
 
     public function destroy(Facilitator $facilitator){

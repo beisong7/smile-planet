@@ -2,7 +2,7 @@
 $active['application'] = 'imactive';
 $csslinks = [''];
 $pagename = '<b>Applications</b> - Facilitators';
-$li_active['fac'] = 'active';
+$li_active['enrollment'] = 'active';
 $jslinks = ['print.js?v='.$req['version']=0.03];
 
 
@@ -23,10 +23,8 @@ $jslinks = ['print.js?v='.$req['version']=0.03];
     <div style="margin-top: 30px">
 
         <div class="col-sm-12">
-            <h3 class="title"> Facilitators registered </h3>
-            <p><small class="gray">Find Facilitators on the smileplanetef.org domain. </small></p>
-            <small class="gray">Pages</small>
-            <br>
+            <h3 class="title"> Enrollments registered </h3>
+
             <br>
             <div class="btn-group ">
                 <button type="button" class="btn btn-primary">Action</button>
@@ -45,7 +43,6 @@ $jslinks = ['print.js?v='.$req['version']=0.03];
 
 
             <hr>
-            {{--{{ $facilitators->links() }}--}}
             <br>
 
             <div class="panel panel-default paper">
@@ -61,10 +58,7 @@ $jslinks = ['print.js?v='.$req['version']=0.03];
                             {{--<th>#</th>--}}
                             <th title="I P Address">Names</th>
                             <th title="Device Used">Telephone</th>
-                            <th title="Country">State/Country</th>
-
                             <th title="the visited url">Email</th>
-
                             <th title="Time Visited">Registered</th>
                             <th class="noprint">
 
@@ -75,34 +69,21 @@ $jslinks = ['print.js?v='.$req['version']=0.03];
 
                         </thead>
                         <tbody>
-                        @forelse($facilitators as $person)
+                        @forelse($enrollments as $person)
                             <tr>
 
                                 <td>
-                                    {{ $person->title . ' '. $person->fname ." ".  $person->lname }}
+                                    {{ $person->first_name . ' '. $person->surname ." ".  $person->other_name }}
                                 </td>
 
                                 <td>
-                                    {{ $person->tel1 }}
-                                </td>
-
-                                <td>
-                                    {{ $person->country .",  ".$person->city  }}
+                                    {{ $person->phone }}
                                 </td>
 
                                 <td>
 
                                     {{ $person->email }}
 
-                                    @if($person->verify === "no" )
-
-                                        <span style="color: red;"> ✖ </span>
-
-                                    @else
-
-                                        <span style="color: green;"> ✔ </span>
-
-                                    @endif
 
                                 </td>
 
@@ -112,9 +93,9 @@ $jslinks = ['print.js?v='.$req['version']=0.03];
 
                                 <td class="noprint">
                                     <div class="">
-                                        <a href="{{ route('facilitator.preview', $person->id) }}" class="btn btn-xs btn-info"> Preview </a>
+                                        <a href="#" class="btn btn-xs btn-info"> Preview </a>
 
-                                        <form action="{{ route('facilitator.delete', $person->id) }}" method="post" style="display: inline;">
+                                        <form action="#" method="post" style="display: inline;">
                                             {{ csrf_field() }}
                                             <input name="volunteer" value="{{ $person->id }}" type="text" class="hidden" >
                                             <button class="btn btn-xs btn-danger btn-xs" type="submit">Delete</button>
@@ -137,7 +118,8 @@ $jslinks = ['print.js?v='.$req['version']=0.03];
                     </table>
                 </div>
                 <br>
-                {{ $facilitators->links() }}
+                <small class="gray">Pages</small>
+                {{ $enrollments->links() }}
             </div>
         </div>
     </div>
