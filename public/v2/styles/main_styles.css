@@ -951,6 +951,9 @@ section
 	font-weight: 600;
 	color: #FFFFFF;
 }
+.owl-carousel.owl-drag .owl-item {
+	height: 100%;
+}
 .home_subtitle
 {
 	max-width: 670px;

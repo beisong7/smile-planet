@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Detail extends Model
 {
@@ -28,5 +29,9 @@ class Detail extends Model
     public function people(){
         return People::where('related', $this->relative)->get();
 //        return $this->hasMany(People::class, 'related', 'relative');
+    }
+
+    public function info($n){
+        return Str::words(strip_tags($this->info), $n, '...');
     }
 }

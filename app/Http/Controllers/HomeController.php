@@ -111,7 +111,9 @@ class HomeController extends Controller
         $banners = Slider::where('active', true)->take(6)->get();
         return view('v2.page.home.index')
             ->with('banners', $banners)
-            ->with('events', $upcoming);
+            ->with('events', $upcoming)
+            ->with('mfeatured', Detail::where('featured1', true)->where('active', true)->first())
+            ->with('featured', Detail::where('featured', true)->where('active', true)->take(6)->get());
     }
 
     public function about($type, $link){
