@@ -31,7 +31,11 @@
                                     <div class="course_image"><img src="{{ url('uploads/'.$course->image) }}" alt="course_img_{{ $course->title }}"></div>
                                     <div class="course_body">
                                         <div class="course_header d-flex flex-row align-items-center justify-content-start">
-                                            <div class="course_tag"><a href="{{ route('detail.course.reg', [$course->link, $course->type])  }}">Enroll</a></div>
+                                            @if($details->use_reg==='yes')
+                                                <div class="course_tag"><a href="{{ route('detail.course.reg', [$course->link, $course->type])  }}">Enroll</a></div>
+                                            @else
+                                                <div class="course_tag"><a href="{{ route('home.about',['type'=>$course->type, 'link'=>$course->link ])  }}">More</a></div>
+                                            @endif
                                             {{--<div class="course_price ml-auto">Price: <span>$35</span></div>--}}
                                         </div>
                                         <div class="course_title"><h3><a href="{{ route('home.about',['type'=>$course->type, 'link'=>$course->link ]) }}">{{ $course->title }}</a></h3></div>

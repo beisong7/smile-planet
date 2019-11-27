@@ -13,7 +13,11 @@
                             <div class="col-lg-6 featured_col">
                                 <div class="featured_content">
                                     <div class="featured_header d-flex flex-row align-items-center justify-content-start">
-                                        <div class="featured_tag"><a href="{{ route('detail.course.reg', [$mfeatured->link, $mfeatured->type])  }}">Enroll</a></div>
+                                        @if($details->use_reg==='yes')
+                                            <div class="featured_tag"><a href="{{ route('detail.course.reg', [$mfeatured->link, $mfeatured->type])  }}">Enroll</a></div>
+                                        @else
+                                            <div class="featured_tag"><a href="{{ route('home.about',['type'=>$mfeatured->type, 'link'=>$mfeatured->link ])  }}">More</a></div>
+                                        @endif
                                         {{--<div class="featured_price ml-auto">Price: <span>$35</span></div>--}}
                                     </div>
                                     <div class="featured_title"><h3><a href="{{ route('home.about',['type'=>$mfeatured->type, 'link'=>$mfeatured->link ]) }}">{{ $mfeatured->title }}</a></h3></div>
