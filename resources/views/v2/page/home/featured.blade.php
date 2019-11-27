@@ -13,7 +13,7 @@
                             <div class="col-lg-6 featured_col">
                                 <div class="featured_content">
                                     <div class="featured_header d-flex flex-row align-items-center justify-content-start">
-                                        @if($details->use_reg==='yes')
+                                        @if($mfeatured->use_reg==='yes')
                                             <div class="featured_tag"><a href="{{ route('detail.course.reg', [$mfeatured->link, $mfeatured->type])  }}">Enroll</a></div>
                                         @else
                                             <div class="featured_tag"><a href="{{ route('home.about',['type'=>$mfeatured->type, 'link'=>$mfeatured->link ])  }}">More</a></div>

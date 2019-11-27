@@ -31,7 +31,7 @@
                                     <div class="course_image"><img src="{{ url('uploads/'.$course->image) }}" alt="course_img_{{ $course->title }}"></div>
                                     <div class="course_body">
                                         <div class="course_header d-flex flex-row align-items-center justify-content-start">
-                                            @if($details->use_reg==='yes')
+                                            @if($course->use_reg==='yes')
                                                 <div class="course_tag"><a href="{{ route('detail.course.reg', [$course->link, $course->type])  }}">Enroll</a></div>
                                             @else
                                                 <div class="course_tag"><a href="{{ route('home.about',['type'=>$course->type, 'link'=>$course->link ])  }}">More</a></div>
