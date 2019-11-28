@@ -26,7 +26,7 @@ class CreatePformsTable extends Migration
             $table->string('bus_phone')->nullable();
             $table->string('bus_email')->nullable();
             $table->text('bus_address')->nullable();
-            $table->integer('num_employee')->nullable(); // number of employee
+            $table->string('num_employee')->nullable(); // number of employee
             $table->text('bus_certs')->nullable();
             $table->text('prog_attended')->nullable();// past programs attended
             $table->boolean('seen')->nullable();

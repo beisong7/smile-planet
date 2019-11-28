@@ -34,4 +34,6 @@ class Detail extends Model
     public function info($n){
         return Str::words(strip_tags($this->info), $n, '...');
     }
+
+
 }

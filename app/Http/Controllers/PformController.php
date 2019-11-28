@@ -49,6 +49,11 @@ class PformController extends Controller
         //
     }
 
+    public function enrollmentInfo($id){
+        $form = Pform::where('id', $id)->first();
+        return !empty($form)?view('admin.pages.application.enroll_preview')->with('form', $form):back();
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

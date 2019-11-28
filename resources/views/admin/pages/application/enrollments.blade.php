@@ -1,7 +1,7 @@
 <?php
 $active['application'] = 'imactive';
 $csslinks = [''];
-$pagename = '<b>Applications</b> - Facilitators';
+$pagename = '<b>Applications</b> - Enrollments';
 $li_active['enrollment'] = 'active';
 $jslinks = ['print.js?v='.$req['version']=0.03];
 
@@ -60,6 +60,8 @@ $jslinks = ['print.js?v='.$req['version']=0.03];
                             <th title="Device Used">Telephone</th>
                             <th title="the visited url">Email</th>
                             <th title="Time Visited">Registered</th>
+                            <th title="Time Visited">For</th>
+                            <th title="Time Visited">Reg Title</th>
                             <th class="noprint">
 
                                 <span class="">Action</span>
@@ -72,34 +74,21 @@ $jslinks = ['print.js?v='.$req['version']=0.03];
                         @forelse($enrollments as $person)
                             <tr>
 
-                                <td>
-                                    {{ $person->first_name . ' '. $person->surname ." ".  $person->other_name }}
-                                </td>
+                                <td>{{ $person->first_name . ' '. $person->surname ." ".  $person->other_name }}</td>
 
-                                <td>
-                                    {{ $person->phone }}
-                                </td>
+                                <td>{{ $person->phone }}</td>
 
-                                <td>
+                                <td>{{ $person->email }}</td>
 
-                                    {{ $person->email }}
+                                <td>{{ date('F d, Y ', strtotime($person->created_at))}}</td>
 
+                                <td>{{ $person->regFor() }}</td>
 
-                                </td>
-
-                                <td>
-                                    {{ date('F d, Y ', strtotime($person->created_at))}}
-                                </td>
+                                <td>{{ $person->regTitle() }}</td>
 
                                 <td class="noprint">
                                     <div class="">
-                                        <a href="#" class="btn btn-xs btn-info"> Preview </a>
-
-                                        <form action="#" method="post" style="display: inline;">
-                                            {{ csrf_field() }}
-                                            <input name="volunteer" value="{{ $person->id }}" type="text" class="hidden" >
-                                            <button class="btn btn-xs btn-danger btn-xs" type="submit">Delete</button>
-                                        </form>
+                                        <a href="{{  route('console.app.enrollment.info', $person->id)  }}" class="btn btn-xs btn-info"> Preview </a>
                                     </div>
 
 
