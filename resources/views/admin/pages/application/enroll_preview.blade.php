@@ -101,7 +101,7 @@ $jslinks = ['print.js?v='.$req['version']=0.03];
 
                         <tr>
                             <td colspan="3">
-                                <b>Business Certificates: </b>{{ $form->prog_attended}}
+                                <b>Programmes Attended: </b>{{ $form->prog_attended}}
                             </td>
                         </tr>
 
