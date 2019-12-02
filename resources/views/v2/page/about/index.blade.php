@@ -47,7 +47,7 @@
                    </h3>
                    <div class="row mt-5">
                        @foreach($details->people() as $person)
-                           <div class="col-sm-6 col-xs-12">
+                           <div class="col-sm-4 col-xs-12 mb-4">
                                <div class="card shadow-mild">
                                    <div class=" box no-margin no-padding img-center card-img-top">
                                        <div class="contents">
