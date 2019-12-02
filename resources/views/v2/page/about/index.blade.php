@@ -42,10 +42,8 @@
 
                <br>
                @if(!empty($details->relative))
-                   <h3 class="text-center">
-                       {{ !empty($details->people())?$details->title:'' }}
-                   </h3>
-                   <div class="row mt-5">
+
+                   <div class="row mt-3">
                        @foreach($details->people() as $person)
                            <div class="col-sm-4 col-xs-12 mb-4">
                                <div class="card shadow-mild">
