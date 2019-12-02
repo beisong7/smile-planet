@@ -57,7 +57,7 @@
                                    </div>
                                    {{--<img src="{{ url('uploads/'.$person->gallery->url) }}" class="card-img-top" alt="...">--}}
                                    <div class="card-body">
-                                       <h3>{{ $person->names }}</h3>
+                                       <h4>{{ $person->names }}</h4>
                                        <h5>{{ !empty($person->pos)?$person->pos:'Team Member' }}</h5>
                                        <p class="card-text">{{ $person->o_details }}</p>
                                    </div>
