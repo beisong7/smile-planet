@@ -9,11 +9,11 @@
         <div class="row">
             <div class="col-sm-6">
                 <div class="v-top ">
-                    <h3><b> Abuja</b></h3>
+                    {{--<h3><b> Abuja</b></h3>--}}
                     <p class="purple text-justify">
-                        Suite 202 Abiding Grace Plaza, by Federal Boy College, Gudu District Abuja Nigeria.
+                        Suit BA11, Apo Spark Mall, Opposite Living Faith Church, Durumi II by Area 3 Junction, Abuja.
                     </p>
-                    <p><i class="fa fa-phone"></i> +2348070920250,+2347032998069 </p>
+                    <p><i class="fa fa-phone"></i> +2347033461426, +2349098002014</p>
                     <br>
 
 
