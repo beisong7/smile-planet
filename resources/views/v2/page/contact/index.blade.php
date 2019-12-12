@@ -19,18 +19,6 @@
 
                 </div>
             </div>
-            <div class="col-sm-6">
-                <div class="v-top ">
-                    <h3><b> Lagos</b></h3>
-                    <p class="purple text-justify">
-                        Suite 45A,Hope Plaza,Km 2 Addo Road Ajah,Lekki Lagos Nigeria.
-                    </p>
-                    <p><i class="fa fa-phone"></i> +2348070920250,+2347032998069 </p>
-                    <br>
-
-
-                </div>
-            </div>
         </div>
 
         <br>
