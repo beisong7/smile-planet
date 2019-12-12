@@ -11,7 +11,7 @@
                 <div class="v-top ">
                     {{--<h3><b> Abuja</b></h3>--}}
                     <p class="purple text-justify">
-                        Suit BA11, Apo Spark Mall, Opposite Living Faith Church, Durumi II by Area 3 Junction, Abuja.
+                        Suite BA 11, Apo Spark Mall, Opposite Living Faith Church, Durumi II by Area 3 Junction, Abuja.
                     </p>
                     <p><i class="fa fa-phone"></i> +2347033461426, +2349098002014</p>
                     <br>

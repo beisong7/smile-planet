@@ -66,7 +66,7 @@
                     <div class="footer_contact_info">
                         <div class="footer_contact_item">
                             <div class="footer_contact_title">Address:</div>
-                            <div class="footer_contact_line">Suit BA11, Apo Spark Mall, Opposite Living Faith Church, Durumi II by Area 3 Junction, Abuja.</div>
+                            <div class="footer_contact_line">Suite BA 11, Apo Spark Mall, Opposite Living Faith Church, Durumi II by Area 3 Junction, Abuja.</div>
                         </div>
                         <div class="footer_contact_item">
                             <div class="footer_contact_title">Phone:</div>
