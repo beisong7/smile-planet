@@ -57,7 +57,12 @@
                             </td>
                             <td>
                                 <a href="{{ route('slider.edit', $slider->id) }}" class="btn bt-sm btn-primary "> Edit </a>
-                                <button class="btn bt-sm btn-danger "> Delete </button>
+                                <button class="btn bt-sm btn-danger " onclick="event.preventDefault(); document.getElementById('form_'{{ $slider->id }})">
+                                    Delete
+                                    <form action="{{ route('slider.destroy', $slider->id) }}" method="post" class="" id="form_{{ $slider->id }}">
+                                        {{ csrf_field() }}
+                                    </form>
+                                </button>
                             </td>
                         </tr>
                     @empty

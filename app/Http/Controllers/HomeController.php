@@ -108,7 +108,7 @@ class HomeController extends Controller
 
 //        $upcoming = Program::where('dates', '>', strtotime('today'))->orderBy('dates', 'DESC')->take(3)->get();
         $upcoming = Program::where('dates', '<', $ts)->orderBy('dates', 'DESC')->select(['id', 'title', 'dates', 'venue'])->take(4)->get();
-        $banners = Slider::where('active', true)->take(6)->get();
+        $banners = Slider::where('active', true)->get();
         return view('v2.page.home.index')
             ->with('banners', $banners)
             ->with('events', $upcoming)

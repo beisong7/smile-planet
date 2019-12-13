@@ -111,6 +111,16 @@ class SliderController extends Controller
      */
     public function destroy(Slider $slider)
     {
-        //
+        if(!empty($slider)){
+            //unlink file path
+            try{
+                unlink($slider->image);
+            }catch (\Exception $e){
+
+            }
+            $slider->delete();
+        }
+
+        return back()->withMessage('Completed.');
     }
 }
