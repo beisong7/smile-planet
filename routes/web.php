@@ -359,6 +359,7 @@ Route::group(['middleware'=> 'admin'], function(){
     Route::get('console/category/blog/unpublish/{blog}', 'BlogController@unpublish')->name('blog.unpublish');
 
     Route::resource('slider', 'SliderController');
+    Route::get('slider/del/{slider}', 'SliderController@destroy')->name('delete.slider');
 
 });
 //Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
