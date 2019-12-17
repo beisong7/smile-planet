@@ -1,4 +1,4 @@
-<?php $active['people'] = 'imactive';
+<?php $active['faq'] = 'imactive';
 
 
 $url = route('faq.index');

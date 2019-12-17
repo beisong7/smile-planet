@@ -1,4 +1,4 @@
-<?php $active['people'] = 'imactive';
+<?php $active['faq'] = 'imactive';
 
 $url = route('faq.index');
 $pagename = "<a href='$url'>FAQ</a> <span style='margin-left: 10px'> <b>Edit</b></span>";
