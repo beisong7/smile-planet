@@ -127,6 +127,8 @@ Route::group(['middleware'=> 'count'], function(){
 
     Route::get('/home/staff/login', 'HomeController@stafflogin')->name('staff.login');
 
+    Route::get('/p/faq/info', 'HomeController@faq')->name('faq');
+
 
 });
 
@@ -359,7 +361,12 @@ Route::group(['middleware'=> 'admin'], function(){
     Route::get('console/category/blog/unpublish/{blog}', 'BlogController@unpublish')->name('blog.unpublish');
 
     Route::resource('slider', 'SliderController');
+
     Route::get('slider/del/{slider}', 'SliderController@destroy')->name('delete.slider');
+
+    Route::resource('faq', 'FaqController');
+    Route::get('disable/faq/{unid}', 'FaqController@disable')->name('faq.disable');
+
 
 });
 //Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {

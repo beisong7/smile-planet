@@ -14,7 +14,9 @@ class FaqController extends Controller
      */
     public function index()
     {
-        //
+        $faqs = Faq::where('active', true)->paginate(25);
+        return view('admin.pages.faq.index')
+            ->with('faqs',$faqs);
     }
 
     /**
@@ -24,7 +26,7 @@ class FaqController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.pages.faq.add');
     }
 
     /**
@@ -35,7 +37,15 @@ class FaqController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $faq = new Faq();
+        $faq->qst = $request->input('qst');
+        $faq->unid = uniqid('_faq-', false);
+        $faq->ans = $request->input('ans');
+        $faq->active = true;
+
+        $faq->save();
+
+        return redirect()->route('faq.index');
     }
 
     /**
@@ -44,9 +54,12 @@ class FaqController extends Controller
      * @param  \App\Faq  $faq
      * @return \Illuminate\Http\Response
      */
-    public function show(Faq $faq)
+    public function show($unid)
     {
-        //
+        $faq = Faq::whereUnid($unid)->first();
+        return view('admin.pages.faq.show')
+            ->with('faq', $faq);
+
     }
 
     /**
@@ -67,9 +80,18 @@ class FaqController extends Controller
      * @param  \App\Faq  $faq
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Faq $faq)
+    public function update(Request $request, $unid)
     {
-        //
+        $faq = Faq::whereUnid($unid)->first();
+        if(!empty($faq)){
+            $faq->qst = $request->input('qst');
+            $faq->ans = $request->input('ans');
+            $faq->update();
+
+            return back()->withMessage('Updated');
+        }
+
+        return back()->withErrors(array('error'=>'Not found'));
     }
 
     /**
@@ -78,8 +100,25 @@ class FaqController extends Controller
      * @param  \App\Faq  $faq
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Faq $faq)
+    public function destroy($unid)
     {
-        //
+        $faq = Faq::whereUnid($unid)->first();
+        if(!empty($faq)){
+            $faq->active = false;
+            $faq->update();
+        }
+
+        return back()->withErrors(array('error'=>'Not found'));
+    }
+
+    public function disable($unid)
+    {
+        $faq = Faq::whereUnid($unid)->first();
+        if(!empty($faq)){
+            $faq->active = false;
+            $faq->update();
+        }
+
+        return back()->withErrors(array('error'=>'Not found'));
     }
 }

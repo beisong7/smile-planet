@@ -115,6 +115,18 @@
                 </a>
             </div>
         </div>
+        <div class="col-sm-3">
+            <div class="panel panel-default material-panel lite-gray-bg">
+                <a href="{{ route('faq.index') }}">
+                    <div class="panel-body">
+
+                        <p class="text-center" style="margin: 0;padding: 0"><i class="fa fa-question-circle" style="font-size: 50px; color: rgba(33,33,33,0.92)"></i></p>
+                        <br>
+                        <h1 class="text-center">F A Q</h1>
+                    </div>
+                </a>
+            </div>
+        </div>
 
     </div>
 

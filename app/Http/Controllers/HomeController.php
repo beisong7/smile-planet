@@ -9,6 +9,7 @@ use App\Calender;
 use App\Category;
 use App\Content;
 use App\Detail;
+use App\Faq;
 use App\Partner;
 use App\People;
 use App\Program;
@@ -294,6 +295,12 @@ class HomeController extends Controller
 
     public function stafflogin(){
         return view('pages.staff.login');
+    }
+
+    public function faq(){
+        $faqs = Faq::where('active', true)->get();
+        return view('v2.page.faq.index')
+            ->with('faqs', $faqs);
     }
 
 }

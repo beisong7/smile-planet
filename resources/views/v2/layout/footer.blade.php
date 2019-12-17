@@ -55,7 +55,7 @@
 
                         <li><a href="http://events.smileplanetef.org">Events</a></li>
                         <li><a href="http://foundation.smileplanetef.org">Foundation</a></li>
-                        <li><a href="#">FAQ</a></li>
+                        <li><a href="{{ route('faq') }}">FAQ</a></li>
                     </ul>
                 </div>
             </div>
