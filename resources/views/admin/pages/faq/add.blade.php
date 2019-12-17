@@ -1,6 +1,6 @@
 <?php $active['faq'] = 'imactive';
 
-
+$jslinks = ['js/tinymce/jquery.tinymce.min.js', 'js/tinymce/tinymce.min.js', ];
 $url = route('faq.index');
 $pagename = "<a href='$url'>FAQ</a> <span style='margin-left: 10px'> <b>New</b></span>";
 
@@ -33,7 +33,7 @@ $pagename = "<a href='$url'>FAQ</a> <span style='margin-left: 10px'> <b>New</b><
 
                         <label class="col-sm-2 control-label" for="textinput">Question</label>
                         <div class="col-sm-10">
-                            <textarea type="text" name="qst" placeholder="Question" class="form-control" required>{{ old('qst') }}</textarea>
+                            <input type="text" name="qst" placeholder="Question" class="form-control" required value="{{ old('qst') }}">
                         </div>
 
                     </div >
@@ -59,7 +59,7 @@ $pagename = "<a href='$url'>FAQ</a> <span style='margin-left: 10px'> <b>New</b><
 
     </div>
 
-
+@include('admin.includes.tinymce')
 @endsection
 
 
