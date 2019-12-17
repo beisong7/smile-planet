@@ -41,7 +41,7 @@ $pagename = "<a href='$url'>FAQ</a> <span style='margin-left: 10px'> <b>New</b><
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="textinput">Answer</label>
                         <div class="col-sm-10">
-                            <textarea type="text" name="ans" placeholder="Answer" class="form-control" required>{{ old('ans') }}</textarea>
+                            <textarea type="text" name="ans" placeholder="Answer" class="form-control" >{{ old('ans') }}</textarea>
                         </div>
                     </div>
 

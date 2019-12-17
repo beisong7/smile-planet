@@ -43,7 +43,7 @@ $jslinks = ['newbanner.js', 'js/tinymce/jquery.tinymce.min.js', 'js/tinymce/tiny
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="textinput">Answer</label>
                         <div class="col-sm-10">
-                            <textarea type="text" name="ans" placeholder="Answer" class="form-control" required>{{ $faq->ans }}</textarea>
+                            <textarea type="text" name="ans" placeholder="Answer" class="form-control">{{ $faq->ans }}</textarea>
                         </div>
 
                     </div>
