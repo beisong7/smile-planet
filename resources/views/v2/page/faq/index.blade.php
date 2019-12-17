@@ -18,7 +18,7 @@
                             <div class="accordion_panel">
                                 <div>
                                     <p class="p-3">
-                                        {{ $faq->ans }}
+                                        {!! $faq->ans !!}
                                     </p>
                                 </div>
                             </div>

@@ -14,7 +14,7 @@ class FaqController extends Controller
      */
     public function index()
     {
-        $faqs = Faq::where('active', true)->paginate(25);
+        $faqs = Faq::paginate(25);
         return view('admin.pages.faq.index')
             ->with('faqs',$faqs);
     }
@@ -117,6 +117,19 @@ class FaqController extends Controller
         if(!empty($faq)){
             $faq->active = false;
             $faq->update();
+            return back()->withMessage('Completed');
+        }
+
+        return back()->withErrors(array('error'=>'Not found'));
+    }
+
+    public function enable($unid)
+    {
+        $faq = Faq::whereUnid($unid)->first();
+        if(!empty($faq)){
+            $faq->active = true;
+            $faq->update();
+            return back()->withMessage('Completed');
         }
 
         return back()->withErrors(array('error'=>'Not found'));

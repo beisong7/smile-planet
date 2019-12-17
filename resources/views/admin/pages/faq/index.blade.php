@@ -51,7 +51,11 @@
 
                                 <a href="{{ route('faq.show',$faq->unid ) }}" class="btn btn-xs btn-info" style="margin: 10px">Edit</a>
 
-                                <a href="{{ route('faq.disable',$faq->unid ) }}" class="btn btn-xs btn-danger" style="margin: 10px">Disable</a>
+                                @if($faq->active)
+                                    <a href="{{ route('faq.disable',$faq->unid ) }}" class="btn btn-xs btn-danger" style="margin: 10px">Disable</a>
+                                @else
+                                    <a href="{{ route('faq.enable',$faq->unid ) }}" class="btn btn-xs btn-success" style="margin: 10px">Enable</a>
+                                @endif
                             </td>
                         </tr>
                     @empty

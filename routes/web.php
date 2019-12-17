@@ -366,6 +366,7 @@ Route::group(['middleware'=> 'admin'], function(){
 
     Route::resource('faq', 'FaqController');
     Route::get('disable/faq/{unid}', 'FaqController@disable')->name('faq.disable');
+    Route::get('enable/faq/{unid}', 'FaqController@enable')->name('faq.enable');
 
 
 });
