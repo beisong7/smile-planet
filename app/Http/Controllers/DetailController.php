@@ -148,6 +148,21 @@ class DetailController extends Controller
 
     }
 
+
+    public function delete($title)
+    {
+        $detail = Detail::where('link', $title)->first();
+//        return url($detail->image);
+
+        if(!empty($detail)){
+            $detail->delete();
+            return view('content.v2');
+        }else{
+            return redirect()->route('content.v2')->withMessage('Unable to find resource');
+        }
+
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

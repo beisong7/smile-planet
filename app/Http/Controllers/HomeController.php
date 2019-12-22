@@ -119,7 +119,7 @@ class HomeController extends Controller
 
     public function about($type, $link){
 
-        $data = Detail::where('link', $link)->where('type', $type)->first();
+        $data = Detail::where('link', $link)->where('type', $type)->where('active', true)->first();
 
         //prevent errors
         if(empty($data)){return redirect()->route('home');}

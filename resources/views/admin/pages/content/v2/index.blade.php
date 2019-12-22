@@ -79,6 +79,7 @@ $pagename = '<a href="'.$kurl.'"><b>Edit Contents</b></a>  <span style="margin-l
                                 {{--</form>--}}
                                 <a href="{{ route('edit.detail', $detail->link  ) }}" class="btn btn-sm btn-info ">Edit</a>
                                 <a href="{{ route('edit.detail.toggle',  $detail->link ) }}" class="btn btn-sm btn-default ">{{ $detail->active?'Deactivate':'Activate' }}</a>
+                                <a href="{{ route('edit.delete', $detail->link  ) }}" class="btn btn-sm btn-danger "><i class="fa fa-trash"></i></a>
 
                             </td>
                         </tr>

@@ -245,6 +245,7 @@ Route::group(['middleware'=> 'admin'], function(){
     Route::get('/console/content/v2', 'DetailController@index')->name('content.v2');
     Route::get('/console/content/v2/new', 'DetailController@create')->name('new.detail');
     Route::get('/console/content/v2/edit/{link}', 'DetailController@show')->name('edit.detail');
+    Route::get('/console/content/v2/delete/{link}', 'DetailController@delete')->name('edit.delete');
     Route::get('/console/content/v2/toggle/{link}', 'DetailController@toggle')->name('edit.detail.toggle');
     Route::post('/console/content/v2/save', 'DetailController@store')->name('new.detail.save');
     Route::post('/console/content/v2/update/{link}', 'DetailController@update')->name('new.detail.update');

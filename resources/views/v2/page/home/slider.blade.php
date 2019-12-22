@@ -32,7 +32,14 @@
                                         </div>
                                         @if($banner->show_btn)
                                             <div class="home_buttons">
-                                                <div class="button home_button"><a href="#">learn more<div class="button_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></div></a></div>
+                                                <?php $numCos = 1; ?>
+                                                @foreach($abouts as $about)
+                                                        @if($numCos <=1)
+                                                            <?php $numCos++; ?>
+                                                            <div class="button home_button"><a href="{{ route('home') }}/info/about/t_What_we_do">learn more<div class="button_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></div></a></div>
+                                                        @endif
+                                                @endforeach
+
                                                 <div class="button home_button"><a href="#">see all courses<div class="button_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></div></a></div>
                                             </div>
                                         @endif
