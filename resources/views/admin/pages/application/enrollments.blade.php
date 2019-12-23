@@ -33,12 +33,26 @@ $jslinks = ['print.js?v='.$req['version']=0.03];
                     <span class="sr-only">Toggle Dropdown</span>
                 </button>
                 <ul class="dropdown-menu">
-                    <li><a href="{{ route('get.excel.others', 'facilitator') }}" id="download_excell">Download Excel <i class="fa fa-file-excel-o"></i></a></li>
+                    <li><a href="{{ route('get.excel.others', ['enrollments', 'datef'=>@$datef,'datet'=>@$datet]) }}" id="download_excell">Download Excel <i class="fa fa-file-excel-o"></i></a></li>
                     {{--<li><a href="#NotWorkingYt">Download PDF <i class="fa fa-file-pdf-o"></i></a></li>--}}
                     {{--<li><a href="#NotWorkingYt">Mail to</a></li>--}}
                     <li role="separator" class="divider"></li>
                     <li><a href="#Print" id="printlist"> Print <i class="fa fa-print"></i></a></li>
                 </ul>
+            </div>
+
+            <div class="col-md-8 pull-right">
+                <form action="{{ route('console.enrollment') }}" method="get">
+                    <div class="col-md-3">
+                        <input type="date" class="form-control" name="datef" value="{{ @$datef }}" >
+                    </div>
+                    <div class="col-md-3">
+                        <input type="date" class="form-control" name="datet" value="{{ @$datet }}" >
+                    </div>
+
+                    <button type="submit" class="btn btn-info">Update</button>
+
+                </form>
             </div>
 
 
@@ -80,7 +94,7 @@ $jslinks = ['print.js?v='.$req['version']=0.03];
 
                                 <td>{{ $person->email }}</td>
 
-                                <td>{{ date('F d, Y ', strtotime($person->created_at))}}</td>
+                                <td>{{ date('F d, Y ', $person->time)}}</td>
 
                                 <td>{{ $person->regFor() }}</td>
 
@@ -108,7 +122,9 @@ $jslinks = ['print.js?v='.$req['version']=0.03];
                 </div>
                 <br>
                 <small class="gray">Pages</small>
-                {{ $enrollments->links() }}
+                @if(empty($datef) and empty($datet))
+                    {{ $enrollments->links() }}
+                @endif
             </div>
         </div>
     </div>

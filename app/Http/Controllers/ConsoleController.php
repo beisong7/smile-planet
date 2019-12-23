@@ -768,34 +768,102 @@ class ConsoleController extends Controller
         exit;
     }
 
-    public function othersExcel($name){
+    public function othersExcel(Request $request, $name){
         //set facilitator or volunteers
 
         if($name==='facilitator'){
-            $objects = Facilitator::all();
+            $objects = Facilitator::class;
+        }elseif ($name==='enrollments') {
+            $objects = Pform::class;
+
+        }
+        else{
+            $objects = Volunteer::class;
+        }
+
+        //todo : Add layer for range by date-applied here
+
+        if($name==='enrollments'){
+
+            $datef = $request->input('datef');
+            $datet = $request->input('datet');
+
+            $enrollments = null;
+
+            if(!empty($datef) && !empty($datet)){
+                $df = strtotime($datef);
+                $dt = strtotime($datet);
+                $enrollments = $objects::where('time','>=', $df)->where('time','<=', $dt)->get();
+
+            }
+
+            if(empty($datef) && !empty($datet)){
+                $dt = strtotime($datet);
+                $enrollments = $objects::where('time','<=', $dt)->get();
+            }
+
+            if(!empty($datef) && empty($datet)){
+                $df = strtotime($datef);
+                $enrollments = $objects::where('time','>=', $df)->get();
+            }
+
+            if(empty($datef) && empty($datet)){
+                $enrollments = $objects::get();
+            }
+            //END RANGE LAYER
+
+            $data = array();
+            foreach ($enrollments as $user){
+                $info['First Name'] = $user->first_name;
+                $info['Surname'] = $user->surname;
+                $info['Other Names'] = $user->other_name;
+                $info['Email'] = $user->email;
+                $info['Phone'] = $user->phone;
+                $info['Business Type'] = $user->bus_type;
+                $info['Business Name'] = $user->bus_name;
+                $info['Business Category'] = $user->bus_category;
+                $info['Business Phone'] = $user->bus_phone;
+                $info['Business Email'] = $user->bus_email;
+                $info['Business Address'] = $user->bus_address;
+                $info['Staff Strength'] = $user->num_employee;
+                $info['Business Certificates'] = $user->bus_certs;
+                $info['Programs Attended'] = $user->prog_attended;
+                $info['Application Date'] = date('F d, Y', $user->time);
+
+
+
+                array_push($data, $info);
+
+            }
+
+
         }else{
-            $objects = Volunteer::all();
-        }
+
 //        $eventreg = $program->users;
-        //prepare the data
-        $data = array();
-        foreach ($objects as $user){
-            $info['Names'] = $user->title . ' ' . $user->fname . ' ' . $user->lname;
-            $info['Location'] = $user->address;
-            $info['gender'] = $user->gender;
-            $info['Date of Birth'] = $user->dob;
-            $info['Email'] = $user->email;
-            $info['Telephone'] = "'".$user->tel1;
+            //prepare the data
+
+            $objects = $objects::get();
+            $data = array();
+            foreach ($objects as $user){
+                $info['Names'] = $user->title . ' ' . $user->fname . ' ' . $user->lname;
+                $info['Location'] = $user->address;
+                $info['gender'] = $user->gender;
+                $info['Date of Birth'] = $user->dob;
+                $info['Email'] = $user->email;
+                $info['Telephone'] = "'".$user->tel1;
 
 
-            array_push($data, $info);
+                array_push($data, $info);
 
-        }
+            }
 
 //        return var_dump($data);
 
 //        $eventreg = $this->objectToArray($program->users);
 //
+
+        }
+
         $filename = "Document_excel".date('Y-m-d:is') . ".xls";
 //
         header("Content-Disposition: attachment; filename=\"$filename\"");
@@ -831,9 +899,39 @@ class ConsoleController extends Controller
 
     }
 
-    public function enrollments(){
-        $enrollments = Pform::paginate(30);
+    public function enrollments(Request $request){
+        $datef = $request->input('datef');
+        $datet = $request->input('datet');
+
+        $model = Pform::class;
+        $enrollments = null;
+
+        if(!empty($datef) && !empty($datet)){
+            $df = strtotime($datef);
+            $dt = strtotime($datet);
+            $enrollments = $model::where('time','>=', $df)->where('time','<=', $dt)->get();
+
+        }
+
+        if(empty($datef) && !empty($datet)){
+            $dt = strtotime($datet);
+            $enrollments = $model::where('time','<=', $dt)->get();
+        }
+
+        if(!empty($datef) && empty($datet)){
+            $df = strtotime($datef);
+            $enrollments = $model::where('time','>=', $df)->get();
+        }
+
+        if(empty($datef) && empty($datet)){
+            $enrollments = $model::paginate(30);
+        }
+
+
+
         return view('admin.pages.application.enrollments')
+            ->with('datef', $datef)
+            ->with('datet', $datet)
             ->with('enrollments', $enrollments);
     }
 

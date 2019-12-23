@@ -133,6 +133,10 @@ $(document).ready(function(){
 
                         //remove loading screen
                     $('.img_loading').hide();
+                    let pval = null;
+                    bool?pval='true':pval='false';
+                    let pin = "<input type='hidden' class='media_type' value='"+pval+"' />";
+                    $('.modal-body').append(pin);
 
                     $.each(x.result, function (a, b) {
                         if(b.type!=='mp4'){
@@ -176,7 +180,14 @@ $(document).ready(function(){
     }
 
     $('.getMoreImg').on('click', function () {
-        moreMedia(1,false);
+        let mediaType = $('media_type').val();
+        let hook = null;
+        if(mediaType==='false'){
+            hook=false;
+        }else{
+            hook=true;
+        }
+        moreMedia(1,hook);
     });
 
     function moreMedia(target, bool) {

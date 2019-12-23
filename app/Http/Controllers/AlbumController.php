@@ -77,6 +77,16 @@ class AlbumController extends Controller
         //
     }
 
+    public function removePic($id){
+        $pic = Picture::where('id', $id)->first();
+
+        if(!empty($pic)){
+            $pic->delete();
+        }
+
+        return back()->withMessage('Operation Completed');
+    }
+
     public function addpic(Album $album)
     {
         //get all pics in album

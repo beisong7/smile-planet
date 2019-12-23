@@ -44,8 +44,7 @@ $pagename = "<a href='$url'>Albums</a> <span style='margin-left: 10px'> <b>$albu
                             <div class="panel-footer">
                                 <small style="font-size: 9px" class="gray"><b>{{ $pic->title }}</b></small>
 
-                                <button title="Delete" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></button>
-                                <button title="Download" class="btn btn-xs btn-success"><i class="fa fa-download"></i></button>
+                                <a href="{{ route('ablum.pic.delete', $pic->id) }}" title="Delete" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></a>
                             </div>
                         </div>
                     </div>

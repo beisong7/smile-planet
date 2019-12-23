@@ -307,6 +307,7 @@ Route::group(['middleware'=> 'admin'], function(){
     Route::resource('/album', 'AlbumController');
 
     Route::get('console/album/{album}/add', 'AlbumController@addpic')->name('album.pic.add');
+    Route::get('console/album/delete/{id}', 'AlbumController@removePic')->name('ablum.pic.delete');
 
     Route::get('console/application/preview/{volunteer}', 'VolunteerController@preview')->name('volunteer.preview');
 
