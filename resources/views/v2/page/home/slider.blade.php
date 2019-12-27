@@ -40,7 +40,7 @@
                                                         @endif
                                                 @endforeach
 
-                                                <div class="button home_button"><a href="#">see all courses<div class="button_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></div></a></div>
+                                                <div class="button home_button"><a href="{{ route('all.course') }}">see all courses<div class="button_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></div></a></div>
                                             </div>
                                         @endif
 

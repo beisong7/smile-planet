@@ -58,6 +58,7 @@
 
                         @endif
                     @endforeach
+                        <a class="dropdown-item" href="{{ route('all.course') }}">All Courses</a>
                 </div>
 
             </li>

@@ -396,6 +396,8 @@ a:hover{
 .landscape{display: block}
 .portrait{display: none}
 
+
+
 @media (max-width: 768px) {
     .a_info h4 {
         font-size: 8px;

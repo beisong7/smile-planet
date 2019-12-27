@@ -129,6 +129,9 @@ Route::group(['middleware'=> 'count'], function(){
 
     Route::get('/p/faq/info', 'HomeController@faq')->name('faq');
 
+    Route::get('list/courses/all', 'CourseController@allcourse')->name('all.course');
+
+
 
 });
 

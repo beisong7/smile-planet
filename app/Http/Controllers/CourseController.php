@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Course;
+use App\Detail;
 use Illuminate\Http\Request;
 use Auth;
 
@@ -111,5 +112,24 @@ class CourseController extends Controller
         }else{
             return back()->withErrors(array('message'=>'Unkown Error Occured, Please Check and Try Again!'));
         }
+    }
+
+    public function allcourse(Request $request){
+        $courses = [];
+        $needle = $request->input('needle');
+        if(empty($needle)){
+            $courses = Detail::where('active', true)->where('type', 'courses')->get();
+        }else{
+
+            $courses = Detail::where('active', true)
+                ->where('type', 'courses')
+                ->where('title', 'LIKE', "%{$needle}%")
+                ->get();
+        }
+
+        return view('v2.page.courses.index')
+            ->with('needle', $needle)
+            ->with('courses', $courses);
+
     }
 }

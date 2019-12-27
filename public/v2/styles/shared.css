@@ -7,6 +7,12 @@
     
     
 }
+.h-200p{
+  height: 200px;
+}
+.img-bg{
+  background: #F2F1F8;
+}
 .dropdown-menu-large > li > ul {
   padding: 0;
   margin: 0;
