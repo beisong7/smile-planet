@@ -106,6 +106,10 @@ class HomeController extends Controller
     public function index2(){
         $newyear = 'January '. (intval(date('Y')) + 1);
         $ts = strtotime($newyear);
+        $partners = Partner::where('active', true)
+            ->where('type', 'hub')
+            ->orWhere('type', 'all')
+            ->get();
 
 //        $upcoming = Program::where('dates', '>', strtotime('today'))->orderBy('dates', 'DESC')->take(3)->get();
         $upcoming = Program::where('dates', '<', $ts)->orderBy('dates', 'DESC')->select(['id', 'title', 'dates', 'venue'])->take(4)->get();
@@ -113,7 +117,7 @@ class HomeController extends Controller
         return view('v2.page.home.index')
             ->with('banners', $banners)
             ->with('events', $upcoming)
-            ->with('partners', Partner::get())
+            ->with('partners', $partners)
             ->with('mfeatured', Detail::where('featured1', true)->where('active', true)->first())
             ->with('featured', Detail::where('featured', true)->where('active', true)->take(6)->get());
     }
