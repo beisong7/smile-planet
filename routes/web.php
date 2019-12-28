@@ -192,6 +192,8 @@ Route::group(['middleware'=> 'admin'], function(){
 
     Route::get('/console/partners', 'PartnerController@index')->name('console.partner');
 
+    Route::get('/console/partner/{partner}', 'PartnerController@edit')->name('console.partner.edit');
+
     Route::get('/console/partners/new', 'PartnerController@create')->name('console.partner.new');
 
     Route::get('/console/programs/new', 'ProgramController@newevent')->name('console.event.new');
@@ -205,6 +207,7 @@ Route::group(['middleware'=> 'admin'], function(){
     Route::post('/console/programs/new', 'ProgramController@store')->name('event.store');
 
     Route::post('/console/partner/new', 'PartnerController@store')->name('partner.store');
+    Route::post('/console/partner/update/{partner}', 'PartnerController@update')->name('partner.update');
 
     Route::post('/slidessave', 'BannerController@storeslide');
 

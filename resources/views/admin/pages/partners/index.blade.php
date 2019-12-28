@@ -50,6 +50,7 @@
 
                             <td>
 
+                                <a href="{{ route('console.partner.edit', $partner->id) }}" class="btn btn-xs btn-info btn-xs" >Edit</a>
                                 <form action="{{ route('delete.partner', $partner->id) }}" method="post" style="display: inline;">
                                     {{ csrf_field() }}
                                     <input name="partner_id" value="{{ $partner->id }}" type="text" class="hidden">

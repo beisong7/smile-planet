@@ -20,15 +20,29 @@ class PartnerController extends Controller
         return view('admin.pages.partners.add');
     }
 
+    public function edit(Partner $partner){
+        return view('admin.pages.partners.edit')->with('partner', $partner);
+    }
+
     public function store(Request $request)
     {
-        $data = $request->all();
 //        $data['status'] = 1;
-        if(Partner::create($data)){
-            return redirect(route('console.partner'))->withMessage('New Partner Added Successfully');
-        }else{
-            return back()->withErrors(array('message'=>'Unable to Complete. Try again later.'));
-        }
+        $partner = new Partner();
+        $partner->name = $request->input('name');
+        $partner->gallery_id = $request->input('gallery_id');
+        $partner->type = $request->input('type');
+        $partner->active = true;
+        $partner->save();
 
+        return redirect(route('console.partner'))->withMessage('New Partner Added Successfully');
+    }
+
+    public function update(Request $request, Partner $partner){
+        $partner->name = $request->input('name');
+        $partner->gallery_id = $request->input('gallery_id');
+        $partner->type = $request->input('type');
+        $partner->update();
+
+        return back()->withMessage('Updated!');
     }
 }
