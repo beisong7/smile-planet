@@ -123,8 +123,6 @@ $(document).ready(function(){
 
                 let x = JSON.parse(data);
 
-
-
                 if(x.success){
 
                     lastID = x.lastID;
@@ -133,6 +131,9 @@ $(document).ready(function(){
 
                         //remove loading screen
                     $('.img_loading').hide();
+                    if($('.media_type').length > 0){
+                        $('.media_type').remove();
+                    }
                     let pval = null;
                     bool?pval='true':pval='false';
                     let pin = "<input type='hidden' class='media_type' value='"+pval+"' />";
@@ -180,7 +181,8 @@ $(document).ready(function(){
     }
 
     $('.getMoreImg').on('click', function () {
-        let mediaType = $('media_type').val();
+        let mediaType = $('.media_type').val();
+        console.log(mediaType)
         let hook = null;
         if(mediaType==='false'){
             hook=false;

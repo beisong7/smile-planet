@@ -1,4 +1,4 @@
-<?php $versionz = 0.05;?>
+<?php $versionz = 1.05;?>
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
     <head>

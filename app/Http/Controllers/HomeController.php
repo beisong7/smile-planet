@@ -113,6 +113,7 @@ class HomeController extends Controller
         return view('v2.page.home.index')
             ->with('banners', $banners)
             ->with('events', $upcoming)
+            ->with('partners', Partner::get())
             ->with('mfeatured', Detail::where('featured1', true)->where('active', true)->first())
             ->with('featured', Detail::where('featured', true)->where('active', true)->take(6)->get());
     }

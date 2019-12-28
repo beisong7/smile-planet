@@ -34,5 +34,8 @@
     <!-- Join -->
 
 
+    @include('v2.page.home.partner_slider')
+
+
     @include('v2.page.home.join')
 @endsection
