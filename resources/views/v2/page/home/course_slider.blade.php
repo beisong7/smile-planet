@@ -9,9 +9,10 @@
         <div class="row">
             <div class="col">
                 <div class="course_search">
-                    <form action="#" class="course_search_form d-flex flex-md-row flex-column align-items-start justify-content-between">
-                        <div><input type="text" class="course_input" placeholder="Course" required="required"></div>
-                        <div><input type="text" class="course_input" placeholder="Level" required="required"></div>
+                    <form action="{{ route('all.course') }}" class="course_search_form d-flex flex-md-row flex-column align-items-start justify-content-between" method="get">
+                        <div style="width: 100%;" >
+                            <input type="text" class="course_input" placeholder="Course title" name="needle" required="required" value="{{ $needle }}">
+                        </div>
                         <button class="course_button"><span>search course</span><span class="button_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></button>
                     </form>
                 </div>
