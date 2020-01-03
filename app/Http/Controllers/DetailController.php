@@ -298,7 +298,7 @@ class DetailController extends Controller
 
             $email = $request->input('email');
 
-            $exist = Pform::where('email', $email)->where('active', true)->first();
+            $exist = Pform::where('email', $email)->where('detail_link',$link)->where('active', true)->first();
 
             if(empty($exist)){
                 $pform = new Pform();

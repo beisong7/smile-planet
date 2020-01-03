@@ -91,7 +91,7 @@
                 </a>
                 <!-- Here's the magic. Add the .animate and .slide-in classes to your .dropdown-menu and you're all set! -->
                 <div class="dropdown-menu dropdown-menu-right animate slideIn" aria-labelledby="navbarDropdown3">
-                    <a class="dropdown-item" href="#">News</a>
+                    <a class="dropdown-item" href="{{ route('faq') }}">FAQ</a>
                     <a class="dropdown-item" href="{{ route('e.albums') }}">Photos</a>
                     <a class="dropdown-item" target="_blank" href="http://www.youtube.com/channel/UCgZKzHDFOubmM017mVp0Ipw">Videos</a>
                 </div>
