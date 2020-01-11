@@ -103,6 +103,7 @@ $jslinks = ['print.js?v='.$req['version']=0.03];
                                 <td class="noprint">
                                     <div class="">
                                         <a href="{{  route('console.app.enrollment.info', $person->id)  }}" class="btn btn-xs btn-info"> Preview </a>
+                                        <a href="{{  route('console.app.enrollment.delete', $person->id)  }}" class="btn btn-xs btn-danger"> Delete </a>
                                     </div>
 
 

@@ -288,6 +288,7 @@ Route::group(['middleware'=> 'admin'], function(){
 
     Route::get('/console/application/courseapp/view/{coursereg}', 'ConsoleController@courseappshow')->name('console.app.courseapp.show');
     Route::get('/console/application/enrollment/view/{enrollment}', 'PformController@enrollmentInfo')->name('console.app.enrollment.info');
+    Route::get('/console/application/enrollment/delete/{enrollment}', 'PformController@destroy')->name('console.app.enrollment.delete');
 
     Route::post('/console/application/courseapp/delete/{coursereg}', 'ConsoleController@courseappdel')->name('del.courseapp');
 

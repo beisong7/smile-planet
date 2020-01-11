@@ -83,8 +83,15 @@ class PformController extends Controller
      * @param  \App\Pform  $pform
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pform $pform)
+    public function destroy($id)
     {
-        //
+        $form = Pform::where('id', $id)->first();
+
+        if(empty($form)){
+            return back()->withMessage('Form Not Found');
+        }
+
+        $form->delete();
+        return back()->withMessage('Form Deleted');
     }
 }
