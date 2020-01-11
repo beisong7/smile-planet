@@ -27,7 +27,7 @@ class Detail extends Model
     }
 
     public function people(){
-        return People::where('related', $this->relative)->get();
+        return People::where('related', $this->relative)->orderBy('id', 'asc')->get();
 //        return $this->hasMany(People::class, 'related', 'relative');
     }
 
