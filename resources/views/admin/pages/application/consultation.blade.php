@@ -43,6 +43,7 @@ $jslinks = ['print.js?v='.$req['version']=0.03];
 
             <div class="col-md-8 pull-right">
                 <form action="{{ route('console.consultation') }}" method="get">
+
                     <div class="col-md-3">
                         <input type="date" class="form-control" name="datef" value="{{ @$datef }}" >
                     </div>

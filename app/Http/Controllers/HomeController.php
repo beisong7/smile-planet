@@ -336,7 +336,7 @@ class HomeController extends Controller
         $consultee->active = true;
         $consultee->time = time();
 
-//        $consultee->save();
+        $consultee->save();
 
 //        return $request->all();
 
