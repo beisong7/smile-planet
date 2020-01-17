@@ -336,9 +336,9 @@ class HomeController extends Controller
         $consultee->active = true;
         $consultee->time = time();
 
-        $consultee->save();
+//        $consultee->save();
 
-//        return $request->all();
+        return $request->all();
 
         return back()->withMessage('Your form has been submitted. We will contact you shortly. Thank You');
     }
