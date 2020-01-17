@@ -316,11 +316,11 @@ class HomeController extends Controller
     public function free_consult(Request $request){
 
         $request->validate([
-//            'g-recaptcha-response' => 'required|recaptcha',
+            'g-recaptcha-response' => 'required|recaptcha',
         ]);
 
         if(empty($request->input('g-recaptcha-response'))){
-//            return back()->withErrors(array('error'=>'Invalid Captcha. Refresh and try again'));
+            return back()->withErrors(array('error'=>'Invalid Captcha. Refresh and try again'));
         }
 
         $consultee = new Consult();
@@ -338,7 +338,7 @@ class HomeController extends Controller
 
 //        $consultee->save();
 
-        return $request->all();
+//        return $request->all();
 
         return back()->withMessage('Your form has been submitted. We will contact you shortly. Thank You');
     }
