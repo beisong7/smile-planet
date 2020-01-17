@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Banner;
 use App\Category;
+use App\Consult;
 use App\Content;
 use App\Counter;
 use App\Course;
@@ -773,10 +774,16 @@ class ConsoleController extends Controller
 
         if($name==='facilitator'){
             $objects = Facilitator::class;
-        }elseif ($name==='enrollments') {
+        }
+        elseif ($name==='enrollments') {
             $objects = Pform::class;
 
         }
+        elseif ($name==='consultation') {
+            $objects = Consult::class;
+
+        }
+
         else{
             $objects = Volunteer::class;
         }
@@ -837,7 +844,61 @@ class ConsoleController extends Controller
             }
 
 
-        }else{
+        }
+
+        elseif($name==='consultation'){
+
+
+            $datef = $request->input('datef');
+            $datet = $request->input('datet');
+
+            $enrollments = null;
+
+            if(!empty($datef) && !empty($datet)){
+                $df = strtotime($datef);
+                $dt = strtotime($datet);
+                $enrollments = $objects::where('time','>=', $df)->where('time','<=', $dt)->get();
+
+            }
+
+            if(empty($datef) && !empty($datet)){
+                $dt = strtotime($datet);
+                $enrollments = $objects::where('time','<=', $dt)->get();
+            }
+
+            if(!empty($datef) && empty($datet)){
+                $df = strtotime($datef);
+                $enrollments = $objects::where('time','>=', $df)->get();
+            }
+
+            if(empty($datef) && empty($datet)){
+                $enrollments = $objects::get();
+            }
+            //END RANGE LAYER
+
+            $data = array();
+            foreach ($enrollments as $user){
+                $info['First Name'] = $user->first_name;
+                $info['Surname'] = $user->surname;
+                $info['Other Names'] = $user->other_name;
+                $info['Email'] = $user->email;
+                $info['Location'] = $user->location;
+                $info['Phone'] = $user->phone;
+                $info['Business Type'] = str_replace('_', ' ', $user->bus_type);
+                $info['Business Category'] = $user->bus_category;
+                $info['Business Idea'] = $user->bus_ideal;
+                $info['Application Date'] = date('F d, Y', $user->time);
+
+
+
+                array_push($data, $info);
+
+            }
+
+
+
+        }
+        else{
 
 //        $eventreg = $program->users;
             //prepare the data
@@ -933,6 +994,42 @@ class ConsoleController extends Controller
             ->with('datef', $datef)
             ->with('datet', $datet)
             ->with('enrollments', $enrollments);
+    }
+
+    public function consultation(Request $request){
+        $datef = $request->input('datef');
+        $datet = $request->input('datet');
+
+        $model = Consult::class;
+        $enrollments = null;
+
+        if(!empty($datef) && !empty($datet)){
+            $df = strtotime($datef);
+            $dt = strtotime($datet);
+            $enrollments = $model::where('time','>=', $df)->where('time','<=', $dt)->get();
+
+        }
+
+        if(empty($datef) && !empty($datet)){
+            $dt = strtotime($datet);
+            $enrollments = $model::where('time','<=', $dt)->get();
+        }
+
+        if(!empty($datef) && empty($datet)){
+            $df = strtotime($datef);
+            $enrollments = $model::where('time','>=', $df)->get();
+        }
+
+        if(empty($datef) && empty($datet)){
+            $enrollments = $model::paginate(30);
+        }
+
+
+
+        return view('admin.pages.application.consultation')
+            ->with('datef', $datef)
+            ->with('datet', $datet)
+            ->with('consultation', $enrollments);
     }
 
 

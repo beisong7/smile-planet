@@ -7,6 +7,7 @@ use App\Banner;
 use App\Blog;
 use App\Calender;
 use App\Category;
+use App\Consult;
 use App\Content;
 use App\Detail;
 use App\Faq;
@@ -306,6 +307,40 @@ class HomeController extends Controller
         $faqs = Faq::where('active', true)->get();
         return view('v2.page.faq.index')
             ->with('faqs', $faqs);
+    }
+
+    public function free_consultation(){
+        return view('v2.page.forms.consults');
+    }
+
+    public function free_consult(Request $request){
+
+        $request->validate([
+//            'g-recaptcha-response' => 'required|recaptcha',
+        ]);
+
+        if(empty($request->input('g-recaptcha-response'))){
+//            return back()->withErrors(array('error'=>'Invalid Captcha. Refresh and try again'));
+        }
+
+        $consultee = new Consult();
+        $consultee->first_name = $request->input('first_name');
+        $consultee->surname = $request->input('surname');
+        $consultee->other_name = $request->input('other_name');
+        $consultee->email = $request->input('email');
+        $consultee->phone = $request->input('phone');
+        $consultee->bus_type = $request->input('bus_type');
+        $consultee->bus_category = $request->input('bus_category');
+        $consultee->bus_ideal = $request->input('bus_ideal');
+        $consultee->location = $request->input('location');
+        $consultee->active = true;
+        $consultee->time = time();
+
+        $consultee->save();
+
+//        return $request->all();
+
+        return back()->withMessage('Your form has been submitted. We will contact you shortly. Thank You');
     }
 
 }

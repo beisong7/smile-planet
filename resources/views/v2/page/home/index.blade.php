@@ -38,4 +38,5 @@
 
 
     @include('v2.page.home.join')
+    @include('v2.page.home.free_consult')
 @endsection

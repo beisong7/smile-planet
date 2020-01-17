@@ -1,8 +1,8 @@
 <?php
 $active['application'] = 'imactive';
 $csslinks = [''];
-$pagename = '<b>Applications</b> - Enrollments';
-$li_active['enrollment'] = 'active';
+$pagename = '<b>Applications</b> - Free Consultation';
+$li_active['consultation'] = 'active';
 $jslinks = ['print.js?v='.$req['version']=0.03];
 
 
@@ -23,7 +23,7 @@ $jslinks = ['print.js?v='.$req['version']=0.03];
     <div style="margin-top: 30px">
 
         <div class="col-sm-12">
-            <h3 class="title"> Enrollments registered </h3>
+            <h3 class="title"> Free Consultations registered </h3>
 
             <br>
             <div class="btn-group ">
@@ -33,7 +33,7 @@ $jslinks = ['print.js?v='.$req['version']=0.03];
                     <span class="sr-only">Toggle Dropdown</span>
                 </button>
                 <ul class="dropdown-menu">
-                    <li><a href="{{ route('get.excel.others', ['enrollments', 'datef'=>@$datef,'datet'=>@$datet]) }}" id="download_excell">Download Excel <i class="fa fa-file-excel-o"></i></a></li>
+                    <li><a href="{{ route('get.excel.others', ['consultation', 'datef'=>@$datef,'datet'=>@$datet]) }}" id="download_excell">Download Excel <i class="fa fa-file-excel-o"></i></a></li>
                     {{--<li><a href="#NotWorkingYt">Download PDF <i class="fa fa-file-pdf-o"></i></a></li>--}}
                     {{--<li><a href="#NotWorkingYt">Mail to</a></li>--}}
                     <li role="separator" class="divider"></li>
@@ -42,7 +42,7 @@ $jslinks = ['print.js?v='.$req['version']=0.03];
             </div>
 
             <div class="col-md-8 pull-right">
-                <form action="{{ route('console.enrollment') }}" method="get">
+                <form action="{{ route('console.consultation') }}" method="get">
                     <div class="col-md-3">
                         <input type="date" class="form-control" name="datef" value="{{ @$datef }}" >
                     </div>
@@ -61,7 +61,7 @@ $jslinks = ['print.js?v='.$req['version']=0.03];
 
             <div class="panel panel-default paper">
                 <div class="panel-heading">
-                    Enrollments
+                    Consultations
                 </div>
 
                 <div class="panel-body" style="">
@@ -74,8 +74,6 @@ $jslinks = ['print.js?v='.$req['version']=0.03];
                             <th title="Device Used">Telephone</th>
                             <th title="the visited url">Email</th>
                             <th title="Time Visited">Registered</th>
-                            <th title="Time Visited">For</th>
-                            <th title="Time Visited">Reg Title</th>
                             <th class="noprint">
 
                                 <span class="">Action</span>
@@ -85,7 +83,7 @@ $jslinks = ['print.js?v='.$req['version']=0.03];
 
                         </thead>
                         <tbody>
-                        @forelse($enrollments as $person)
+                        @forelse($consultation as $person)
                             <tr>
 
                                 <td>{{ $person->first_name . ' '. $person->surname ." ".  $person->other_name }}</td>
@@ -96,14 +94,10 @@ $jslinks = ['print.js?v='.$req['version']=0.03];
 
                                 <td>{{ date('F d, Y ', $person->time)}}</td>
 
-                                <td>{{ $person->regFor() }}</td>
-
-                                <td>{{ $person->regTitle() }}</td>
-
                                 <td class="noprint">
                                     <div class="">
-                                        <a href="{{  route('console.app.enrollment.info', $person->id)  }}" class="btn btn-xs btn-info"> Preview </a>
-                                        <a href="{{  route('console.app.enrollment.delete', $person->id)  }}" class="btn btn-xs btn-danger"> Delete </a>
+                                        <a href="{{  route('console.app.consultation.info', $person->id)  }}" class="btn btn-xs btn-info"> Preview </a>
+                                        <a href="{{  route('console.app.consultation.delete', $person->id)  }}" class="btn btn-xs btn-danger"> Delete </a>
                                     </div>
 
 
@@ -122,10 +116,14 @@ $jslinks = ['print.js?v='.$req['version']=0.03];
                     </table>
                 </div>
                 <br>
-                <small class="gray">Pages</small>
-                @if(empty($datef) and empty($datet))
-                    {{ $enrollments->links() }}
-                @endif
+
+                <div class="" style="padding: 20px">
+                    @if(empty($datef) and empty($datet))
+                        <small class="gray">Pages</small>
+                        {{ $consultation->links() }}
+                    @endif
+                </div>
+
             </div>
         </div>
     </div>

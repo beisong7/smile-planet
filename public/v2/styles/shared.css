@@ -89,6 +89,15 @@
   color: #fff;
 }
 
+.btn-outline-default:hover, .btn-outline-default:active{
+  background: #EC1E8D;
+  color: #fff;
+}
+.btn-outline-default{
+  border-color: #EC1E8D;
+  color: #EC1E8D;
+}
+
 .img-sit{
   width: 100%;
   overflow: hidden;

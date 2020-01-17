@@ -33,6 +33,9 @@ Route::group(['middleware'=> 'count'], function(){
 
 
     Route::get('/contact', 'HomeController@contact')->name('home.contact');
+    Route::get('/apply/consultation/free', 'HomeController@free_consultation')->name('free.consultation');
+
+    Route::post('/form/consultation/free', 'HomeController@free_consult')->name('free.consult');
 
 
     Route::get('/volunteer', 'HomeController@volunteer')->name('home.volunteer');
@@ -276,6 +279,10 @@ Route::group(['middleware'=> 'admin'], function(){
 
     Route::get('/console/application/enrollments', 'ConsoleController@enrollments')->name('console.enrollment');
 
+    Route::get('/console/application/consultation', 'ConsoleController@consultation')->name('console.consultation');
+    Route::get('/console/application/consultation/view/{consult}', 'ConsultController@show')->name('console.app.consultation.info');
+    Route::get('/console/application/consultation/delete/{consult}', 'ConsultController@destroy')->name('console.app.consultation.delete');
+
     Route::get('/console/application/sponsorship', 'ConsoleController@sponsorship')->name('console.app.spo');
 
     Route::get('/console/application/eventreg', 'ConsoleController@eventreg')->name('console.app.event');
@@ -289,6 +296,7 @@ Route::group(['middleware'=> 'admin'], function(){
     Route::get('/console/application/courseapp/view/{coursereg}', 'ConsoleController@courseappshow')->name('console.app.courseapp.show');
     Route::get('/console/application/enrollment/view/{enrollment}', 'PformController@enrollmentInfo')->name('console.app.enrollment.info');
     Route::get('/console/application/enrollment/delete/{enrollment}', 'PformController@destroy')->name('console.app.enrollment.delete');
+
 
     Route::post('/console/application/courseapp/delete/{coursereg}', 'ConsoleController@courseappdel')->name('del.courseapp');
 

@@ -95,27 +95,27 @@
                                        <b>Business Category</b>
                                        <select name="bus_category" id="" class="form-control">
                                            <option value="" disabled selected>please select</option>
-                                           <option value="More than 100">Automotive</option>
-                                           <option value="More than 100">Agro – Allied</option>
-                                           <option value="More than 100">Business Support and Supplies</option>
-                                           <option value="More than 100">Computer & Electronics</option>
-                                           <option value="More than 100">Constructions & Contractors</option>
-                                           <option value="More than 100">Education</option>
-                                           <option value="More than 100">Entertainment</option>
-                                           <option value="More than 100">Fashion & Beauty</option>
-                                           <option value="More than 100">Food & Beverages</option>
-                                           <option value="More than 100">Furnitures</option>
-                                           <option value="More than 100">Government</option>
-                                           <option value="More than 100">Health & Medicine</option>
-                                           <option value="More than 100">Home and Gardens</option>
-                                           <option value="More than 100">Professional, Legal & Financial</option>
-                                           <option value="More than 100">Manufacturing, Wholesale & Distribution</option>
-                                           <option value="More than 100">Media & Communication</option>
-                                           <option value="More than 100">Medical</option>
-                                           <option value="More than 100">Merchants</option>
-                                           <option value="More than 100">Real Estate</option>
-                                           <option value="More than 100">Sports & Recreation</option>
-                                           <option value="More than 100">Travel & Transportation</option>
+                                           <option value="Automotive">Automotive</option>
+                                           <option value="Agro – Allied">Agro – Allied</option>
+                                           <option value="Business Support and Supplies">Business Support and Supplies</option>
+                                           <option value="Computer & Electronics">Computer & Electronics</option>
+                                           <option value="Constructions & Contractors">Constructions & Contractors</option>
+                                           <option value="Education">Education</option>
+                                           <option value="Entertainment">Entertainment</option>
+                                           <option value="Fashion & Beauty">Fashion & Beauty</option>
+                                           <option value="Food & Beverages">Food & Beverages</option>
+                                           <option value="Furnitures">Furnitures</option>
+                                           <option value="Government">Government</option>
+                                           <option value="Health & Medicine">Health & Medicine</option>
+                                           <option value="Home and Gardens">Home and Gardens</option>
+                                           <option value="Professional, Legal & Financial">Professional, Legal & Financial</option>
+                                           <option value="Manufacturing, Wholesale & Distribution">Manufacturing, Wholesale & Distribution</option>
+                                           <option value="Media & Communication">Media & Communication</option>
+                                           <option value="Medical">Medical</option>
+                                           <option value="Merchants">Merchants</option>
+                                           <option value="Real Estate">Real Estate</option>
+                                           <option value="Sports & Recreation">Sports & Recreation</option>
+                                           <option value="Travel & Transportation">Travel & Transportation</option>
                                        </select>
 
                                    </div>

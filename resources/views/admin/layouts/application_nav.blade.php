@@ -4,3 +4,4 @@
 <a href="{{ route('console.courseRegister') }}" class="btn btn-default btn-sm <?=@$li_active['courses']?>">Courses</a>
 
 <a href="{{ route('console.enrollment') }}" class="btn btn-default btn-sm <?=@$li_active['enrollment']?>">Enrollments</a>
+<a href="{{ route('console.consultation') }}" class="btn btn-default btn-sm <?=@$li_active['consultation']?>">Consultation</a>

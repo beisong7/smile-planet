@@ -36,6 +36,7 @@
                         <li><a href="{{ route('home') }}">Home</a></li>
                         <!--<li><a href="#">Services</a></li>-->
                         <li><a href="{{ route('home.contact') }}">Contact</a></li>
+                        <li><a href="{{ route('free.consultation') }}">Free Consultation</a></li>
                     </ul>
                 </div>
             </div>
@@ -83,7 +84,8 @@
     </div>
     <nav class="navbar p-3 mt-3" style="background: #2E3436;">
         <div class="container">
-            <h5 class="text-center" style="width: 100%;color: #ff8dd5">WE ARE UNDER MAINTENANCE . . . <small>please be nice to us.</small></h5>
+            <h5 class="" style="width: 100%;color: #ff8dd5"><small>&copy; Copyright {{ date('Y') }}</small></h5>
+            <p class="m-0"><small><a href="https://smileplanetef.org/webmail">Mails</a></small></p>
         </div>
     </nav>
 </footer>

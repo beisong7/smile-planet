@@ -66,5 +66,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 <script src="{{ asset('v2/js/main.js'.'?v='.$version) }}"></script>
 <script src="{{ asset('v2/js/plugins.js'.'?v='.$version) }}"></script>
+
+@include('v2.component.liveurl')
+
 </body>
 </html>

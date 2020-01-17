@@ -18,8 +18,8 @@
                             </ul>
                             <div class="top_bar_login ml-auto">
                                 <ul>
-                                    <li><a href="#">Register</a></li>
-                                    <li><a href="#">Login</a></li>
+                                    {{--<li><a href="#">Register</a></li>--}}
+                                    {{--<li><a href="#">Login</a></li>--}}
                                 </ul>
                             </div>
                         </div>
@@ -36,7 +36,7 @@
                 <div class="col">
                     <div class="header_content d-flex flex-row align-items-center justify-content-start">
                         <div class="logo_container">
-                            <a href="#">
+                            <a href="{{ route('home') }}">
                                 <div class="logo_content d-flex flex-row align-items-end justify-content-start">
                                     <div class="logo_img"><img src="{{ url('v2/images/logo.png') }}" alt=""></div>
                                     <div class="logo_text">SPEH</div>
