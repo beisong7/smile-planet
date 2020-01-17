@@ -7,7 +7,7 @@ use GuzzleHttp\Client;
 class ReCaptcha{
 
     public function validate($attribute, $value, $parameters, $validator){
-        $client = new Client;
+        $client = new Client();
 
         $url = "https://www.google.com/recaptcha/api/siteverify";
 
