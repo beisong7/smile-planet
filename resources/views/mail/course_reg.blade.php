@@ -39,7 +39,7 @@
 <table cellspacing='0' style=' width: 100%; height: 200px;'>
 
     <tr style='background-color: #511650;'>
-        <th colspan='2' style='padding: 0 20px;'><span style='font-size: 20px; color: #dedede'>SMILE PLANET ENTREPRENEUR HUB/FOUNDATION </span></th>
+        <th colspan='2' style='padding: 20px 20px;'><span style='font-size: 20px; color: #dedede'>SMILE PLANET ENTREPRENEUR HUB </span></th>
     </tr>
     <tr>
         <td colspan='2'>

@@ -7,7 +7,7 @@ use App\Detail;
 use App\Payment;
 use App\Pform;
 use Illuminate\Http\Request;
-use Unicodeveloper\Paystack\Paystack;
+use Unicodeveloper\Paystack\Facades\Paystack;
 
 class PaymentController extends Controller
 {

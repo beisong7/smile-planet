@@ -373,7 +373,7 @@ class DetailController extends MyController
 
                     //send mail
                     $message =
-                        "<h1>Hi $client->names</h1>! 
+                        "<h1>Hi $client->names !</h1>
                          <p>We are delighted to receive your interest in the $course->title course here at Smile Planet Hub (SPH). We believe 
                          this will be a wonderful experience for you are we are excited to have you.</p>
                          <p>You can reach us on +234 703 324 1426 for any questions or send us an email to <a href='mailto:mails@smileplanetef.org'>mails@smileplanetef.org.</a></p>
