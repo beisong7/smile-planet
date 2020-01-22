@@ -356,13 +356,19 @@ class DetailController extends MyController
 
                 if($course->pay){
 
-                    $client = new Client();
-                    $client->unid = uniqid('', false);
-                    $client->names = $pform->surname. ' ' .$pform->first_name . ' ' .$pform->other_name;
-                    $client->email = $pform->email;
-                    $client->phone = $pform->phone;
+                    $client = Client::where('email', $pform->email)->first();
 
-                    $client->save();
+                    if(empty($client)){
+                        $client = new Client();
+                        $client->unid = uniqid('', false);
+                        $client->names = $pform->surname. ' ' .$pform->first_name . ' ' .$pform->other_name;
+                        $client->email = $pform->email;
+                        $client->phone = $pform->phone;
+
+                        $client->save();
+                    }
+
+
                     $paylink = route('coursepay.prep', [$pform->detail_link, $client->unid]);
 
                     //send mail
