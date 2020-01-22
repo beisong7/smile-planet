@@ -138,6 +138,7 @@ Route::group(['middleware'=> 'count'], function(){
 
     Route::get('prep/course/payment/{link}/{unid}', 'PaymentController@prepPayment')->name('coursepay.prep');
     Route::post('content/pay', 'PaymentController@redirectToGateway')->name('content.pay');
+
     Route::get('payment/content/callback', 'PaymentController@handleGatewayCallback');
 
     Route::get('payment/content/status', 'PaymentController@paystackResponse')->name('payment.result');
