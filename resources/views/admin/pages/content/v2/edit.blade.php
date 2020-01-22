@@ -65,9 +65,21 @@ $pagename = '<a href="'.$kurl.'"><b>Edit Contents</b></a>  <span style="margin-l
                     <div class="col-sm-3">
                         <p><b>Content Configurations</b></p>
                         <div class="" style="padding-left: 30px">
-                            <p class="text-muted">Use Registration?</p>
+                            <p class="text-muted"><b>Use Registration?</b></p>
                             <input type="radio" name="use_reg" value="no" {{ $detail->use_reg==='no'?'checked':'' }}> No
                             <input type="radio" name="use_reg" value="yes" {{ $detail->use_reg==='yes'?'checked':'' }}> Yes
+                        </div>
+                        <div class="" style="padding-left: 30px">
+                            <hr>
+                            <p><b>Payment Configuration</b></p>
+                            <input type="radio" name="pay" value="no" onclick="$('.pricer').hide()" {{ $detail->pay?'':'checked' }}> No
+                            <input type="radio" name="pay" value="yes" onclick="$('.pricer').show()" {{ $detail->pay?'checked':'' }}> Yes
+
+                            <div class="pricer" style="display: {{ $detail->pay?'block':'none'  }}">
+                                <small>enter price, eg 1500, 2000, 20000. only digits allowed</small>
+                                <input type="text" class="form-control" name="price" placeholder="Price for Content" value="{{ $detail->price }}" >
+                            </div>
+
                         </div>
                     </div>
                 </div>

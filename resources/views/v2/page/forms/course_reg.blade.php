@@ -17,6 +17,13 @@
                    <div class=" " style="padding: 0;">
                        <div class="" style="padding: 10px 20px; margin: 0; line-height: 30px">
                            <h5 class="mt-3 mb-3"><b> {{ ucfirst($course->title) }} </b></h5>
+                           @if($course->pay)
+                               <h5 class="mt-3 mb-0"><b>Cost: ₦ {{ ucfirst($course->price) }}  </b></h5>
+                               <br>
+                           @else
+
+                           @endif
+
                            <a href="{{ route('home.about',['type'=>$course->type, 'link'=>$course->link ]) }}" class="">back</a>
                        </div>
 

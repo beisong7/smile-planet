@@ -20,6 +20,8 @@ class Detail extends Model
         'creator_id',
         'use_reg',
         'active',
+        'pay',
+        'price'
     ];
 
     public function creator(){

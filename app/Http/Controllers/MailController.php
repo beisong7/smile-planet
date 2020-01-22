@@ -99,7 +99,25 @@ class MailController extends Controller
         $title = $object['title'];
         $content = $object['content'];
 
-        Mail::send('mail.body', ['title' => $title, 'content'=>$content], function($message) use ($object) {
+        @Mail::send('mail.body', ['title' => $title, 'content'=>$content], function($message) use ($object) {
+
+
+
+//            $message->cc($object['cc'], $name = null);
+//            $message->bcc($object['bcc'], $name = null);
+            $message->subject($object['subject']);
+            $message->to($object['email']);
+        });
+    }
+
+    static function mailler2($object){
+
+//        return $object['message'];
+
+        $title = $object['title'];
+        $content = $object['content'];
+
+        @Mail::send($object['view'], ['title' => $title, 'content'=>$content], function($message) use ($object) {
 
 
 

@@ -32,7 +32,17 @@
                                         <div class="course_body">
                                             <div class="course_header d-flex flex-row align-items-center justify-content-start">
                                                 @if($course->use_reg==='yes')
-                                                    <div class="course_tag"><a href="{{ route('detail.course.reg', [$course->link, $course->type])  }}">Enroll</a></div>
+
+                                                    <div class="course_tag">
+                                                        @if($course->pay)
+                                                            <a href="{{ route('detail.course.reg', [$course->link, $course->type])  }}">Enroll - ₦ {{ $course->price }}</a>
+                                                        @else
+                                                            <a href="{{ route('detail.course.reg', [$course->link, $course->type])  }}">Enroll</a>
+                                                        @endif
+                                                    </div>
+
+
+
                                                 @else
                                                     <div class="course_tag"><a href="{{ route('home.about',['type'=>$course->type, 'link'=>$course->link ])  }}">More</a></div>
                                                 @endif

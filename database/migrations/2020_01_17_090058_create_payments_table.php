@@ -28,6 +28,7 @@ class CreatePaymentsTable extends Migration
             $table->text('gateway_message')->nullable();
             $table->bigInteger('start')->nullable(); // time the payment was initiated
             $table->bigInteger('ends')->nullable(); // time the payment was successful or not
+            $table->string('link')->nullable(); // time the payment was successful or not
             $table->timestamps();
         });
     }

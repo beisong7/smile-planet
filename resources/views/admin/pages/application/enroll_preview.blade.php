@@ -92,7 +92,7 @@ $jslinks = ['print.js?v='.$req['version']=0.03];
 
                         <tr>
                             <td style="width: 50%">
-                                <b>Staff Strength  : </b>{{ $form->num_employee}}
+                                <b>Staff Strength  : </b>{{ $form->num_employee }}
                             </td>
                             <td style="width: 50%">
                                 <b>Business Certificates: </b>{{ str_replace('_', ' ', $form->bus_certs) }}
@@ -101,7 +101,7 @@ $jslinks = ['print.js?v='.$req['version']=0.03];
 
                         <tr>
                             <td colspan="3">
-                                <b>Programmes Attended: </b>{{ $form->prog_attended}}
+                                <b>Programmes Attended: </b>{{ $form->prog_attended }}
                             </td>
                         </tr>
 
@@ -110,7 +110,6 @@ $jslinks = ['print.js?v='.$req['version']=0.03];
                 <br>
 
             </div>
-
         </div>
     </div>
 @endsection

@@ -57,11 +57,25 @@ $pagename = '<a href="'.$kurl.'"><b>Edit Contents</b></a>  <span style="margin-l
                     </div>
                     <div class="col-sm-3">
                         <p><b>Content Configurations</b></p>
+                        <hr>
                         <div class="" style="padding-left: 30px">
-                            <p class="text-muted">Use Registration?</p>
+                            <p class="text-muted"><b>Use Registration?</b></p>
                             <input type="radio" name="use_reg" value="no"> No
                             <input type="radio" name="use_reg" value="yes"> Yes
                         </div>
+                        <div class="" style="padding-left: 30px">
+                            <hr>
+                            <p><b>Payment Configuration</b></p>
+                            <input type="radio" name="pay" value="no" onclick="$('.pricer').hide()"> No
+                            <input type="radio" name="pay" value="yes" checked onclick="$('.pricer').show()"> Yes
+
+                            <div class="pricer">
+                                <small>enter price, eg 1500, 2000, 20000. only digits allowed</small>
+                                <input type="text" class="form-control" name="price" placeholder="Price for Content">
+                            </div>
+
+                        </div>
+
                     </div>
                 </div>
                 <div class="form-group" >

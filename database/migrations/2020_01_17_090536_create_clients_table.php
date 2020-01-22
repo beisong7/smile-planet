@@ -32,6 +32,7 @@ class CreateClientsTable extends Migration
             $table->string('reset_toke')->nullable();
             $table->string('creator_key')->nullable(); //creator key
             $table->rememberToken();
+            $table->timestamps();
         });
     }
 

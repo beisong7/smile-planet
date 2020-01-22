@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Client;
 use App\Detail;
 use App\Pform;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\MailController as Mailus;
 
 class DetailController extends Controller
 {
@@ -56,6 +58,16 @@ class DetailController extends Controller
         if(empty($request->input('info'))){
             return back()->withErrors(array('errors'=>'Details is required!'))->withInput($request->input());
         }
+
+        $pay = $request->input('pay')==='yes'?true:false;
+        $price = null;
+        if($pay){
+            $price = $request->input('price');
+            if(empty($price)){
+                return back()->withErrors(array('errors'=>'Properly Configure Payments!'))->withInput($request->input());
+            }
+        }
+
         $image = '';
 
         $detail = new Detail();
@@ -120,7 +132,8 @@ class DetailController extends Controller
         $detail->creator_id = Auth::user()->id;
         $detail->type = $request->input('type');
         $detail->use_reg = $request->input('use_reg');
-
+        $detail->pay = $pay;
+        $detail->price = $price;
 
 
         $detail->save();
@@ -186,6 +199,8 @@ class DetailController extends Controller
         $detail = Detail::where('link', $link)->first();
 
 
+
+
         if(!empty($detail)){
 
 
@@ -242,10 +257,23 @@ class DetailController extends Controller
                 }
             }
 
+            $pay = $request->input('pay')==='yes'?true:false;
+            $price = null;
+            if($pay){
+                $price = $request->input('price');
+                if(empty($price)){
+                    return back()->withErrors(array('errors'=>'Properly Configure Payments!'))->withInput($request->input());
+                }
+            }
+
 
             $detail->type = $request->input('type');
             $detail->relative = $request->input('relative');
             $detail->use_reg = $request->input('use_reg');
+
+            $detail->pay = $pay;
+            $detail->price = $price;
+
 
             $detail->update();
 
@@ -300,6 +328,7 @@ class DetailController extends Controller
 
             $exist = Pform::where('email', $email)->where('detail_link',$link)->where('active', true)->first();
 
+
             if(empty($exist)){
                 $pform = new Pform();
                 $pform->first_name = $request->input('first_name');
@@ -323,8 +352,45 @@ class DetailController extends Controller
                 $pform->detail_type = $type;
 
                 $pform->save();
-
                 //send email to client
+
+                if($course->pay){
+
+                    $client = new Client();
+                    $client->unid = uniqid('', false);
+                    $client->names = $pform->surname. ' ' .$pform->first_name . ' ' .$pform->other_name;
+                    $client->email = $pform->email;
+                    $client->phone = $pform->phone;
+
+                    $client->save();
+                    $paylink = route('coursepay.prep', [$pform->detail_link, $client->unid]);
+
+                    //send mail
+                    $message =
+                        "<h1>Hi $client->names</h1>! 
+                         <p>We are delighted to receive your interest in the $course->title course here at Smile Planet Hub (SPH). We believe 
+                         this will be a wonderful experience for you are we are excited to have you.</p>
+                         <p>You can reach us on +234 703 324 1426 for any questions or send us an email to <a href='mailto:mails@smileplanetef.org'>mails@smileplanetef.org.</a></p>
+                         <p>Also, to simplify the process, you can make payments for this course by clicking the link below</p>
+                         <br>
+                         <p class='text-center'> <a href='$paylink' class='mail_btn outlined'>Pay Now</a></p>
+                         <br>
+                         
+                         <p>Regards</p>
+                         <p>Smile Planet Hub</p>
+                         ";
+
+                    $object = [
+                        'email'=>$client->email,
+                        'title'=>"Course Registration with SPH",
+                        'content'=>$message,
+                        'view'=>"mail.course_reg",
+                        'subject'=>'Course Registration Notice.'
+                    ];
+                    Mailus::mailler2($object);
+
+                }
+
 
                 $msg = "Thank You for indicate interest in this course/Training you will be contact within 12Hours by our program coordinator through a call. You welcome to Smile Planet. For further enquires kindly call +2347033461426, +2349098002014 ";
                 return redirect()->route('detail.course.reg', [$link, $type])->withMessage($msg);

@@ -44,4 +44,12 @@ class Pform extends Model
         }
         return '';
     }
+
+    public function detail(){
+        return $this->hasMany(Detail::class, 'link', 'detail_link');
+    }
+
+    public function payment(){
+        return $this->hasMany(Payment::class, 'link', 'detail_link');
+    }
 }

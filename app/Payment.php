@@ -10,8 +10,6 @@ class Payment extends Model
         'client_key',
         'unid',
         'reference',
-        'plan_key',
-        'sub_key',
         'kobo',
         'details',
         'success',
@@ -20,5 +18,7 @@ class Payment extends Model
         'gateway_message',
         'start',
         'ends',
+        'link',
+        'email',
     ];
 }
