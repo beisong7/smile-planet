@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\MailController as Mailus;
 
-class DetailController extends Controller
+class DetailController extends MyController
 {
     /**
      * Display a listing of the resource.
@@ -387,7 +387,7 @@ class DetailController extends Controller
                         'view'=>"mail.course_reg",
                         'subject'=>'Course Registration Notice.'
                     ];
-                    Mailus::mailler2($object);
+                    $this->sendEmail($object);
 
                 }
 
