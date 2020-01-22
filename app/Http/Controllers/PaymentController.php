@@ -134,7 +134,7 @@ class PaymentController extends Controller
 
         $paymentDetails = Paystack::getPaymentData();
 
-//        dd($paymentDetails);
+        dd($paymentDetails);
 
         //handle all required callbacks
         $email = $paymentDetails['data']['customer']['email'];
@@ -150,8 +150,6 @@ class PaymentController extends Controller
             //get client
 
             if($status==='success'){
-
-
 
                 $payment->status = $status;
                 $payment->ends = time();
