@@ -10,6 +10,9 @@
             margin: 0;
 
         }
+        a{
+            text-decoration: none;
+        }
         .mail_btn{
             display: inline-block;
             font-weight: 400;
@@ -26,11 +29,13 @@
             line-height: 1.5;
             border-radius: .25rem;
             transition: background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+            color: ;
         }
         .outlined{
             border: #AA3D92 solid 1px;
             background: transparent;
-            color:  #AA3D92 ;
+            color:  #AA3D92 !important;
+            text-decoration: none;
         }
     </style>
 </head>

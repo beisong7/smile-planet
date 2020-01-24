@@ -388,7 +388,7 @@ class DetailController extends MyController
 
                     $object = [
                         'email'=>$client->email,
-                        'title'=>"Course Registration with SPH",
+                        'title'=>"Course Registration with Smile Planet Hub",
                         'content'=>$message,
                         'view'=>"mail.course_reg",
                         'subject'=>'Course Registration Notice.'

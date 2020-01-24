@@ -13,7 +13,7 @@ class MyController extends Controller
         $to = $object['email'];
         $subject = $object['subject'];
 
-        $fromMail = 'SmilePlanetEF <noreply@smileplanetef.org> ';
+        $fromMail = 'SmilePlanet Hub <noreply@smileplanetef.org> ';
         $htmlContent = view($object['view'])
             ->with('title',$object['title'])
             ->with('content', $object['content']);
