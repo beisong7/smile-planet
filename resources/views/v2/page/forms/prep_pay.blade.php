@@ -41,7 +41,7 @@
                        <p>Smile Planet Course Payment Portal</p>
 
                        @if(empty($end_message))
-                       <form action="{{ route('content.pay', [$course->link, $client->unid]) }}" method="post" accept-charset="UTF-8" class="form-horizontal" role="form">
+                       <form action="{{ route('content.pay') }}" method="post" accept-charset="UTF-8" class="form-horizontal" role="form">
                            {{ csrf_field() }}
 
                            <input type="hidden" name="email" value="{{ $client->email }}"> {{-- required --}}
@@ -49,6 +49,9 @@
                            <input type="hidden" name="metadata" value="{{ json_encode($array = ['client_phone' => $client->phone, 'course_price'=>$course->price,]) }}" > {{-- For other necessary things you want to add to your payload. it is optional though --}}
                            <input type="hidden" name="reference" value="{{ \Unicodeveloper\Paystack\Facades\Paystack::genTranxRef() }}"> {{-- required --}}
                            <input type="hidden" name="key" value="{{ config('paystack.secretKey') }}"> {{-- required --}}
+                           <input type="hidden" name="link" value="{{ $course->link }}"> {{-- required for smile planet --}}
+                           <input type="hidden" name="client_key" value="{{ $course->unid }}"> {{-- required for smile planet --}}
+
 
 
                            <hr>

@@ -146,7 +146,7 @@ class PaymentController extends Controller
         $reference = $paymentDetails['data']["reference"];
         $payment = Payment::where('reference', $reference)->first();
 
-        if($status==="success"){
+        if($status === "success"){
 
             $payment->status = $status;
             $payment->ends = time();
