@@ -187,7 +187,7 @@ class PaymentController extends Controller
         $course = Detail::where('link',$link)->first();
         $message = "";
         $pay = "";
-        if($status==='success'){
+        if($status==='Successful'){
             $pay = "Payment Successful";
             $message .= "Congratulations! Your payment was successful. Find receipts in mailbox";
         }else{
