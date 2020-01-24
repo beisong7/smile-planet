@@ -137,38 +137,38 @@ class PaymentController extends Controller
         dd($paymentDetails);
 
           //handle all required callbacks
-//        $email = $paymentDetails['data']['customer']['email'];
-//        $status = $paymentDetails['data']['status'];
-//        $response = "failed";
-//        $response = $paymentDetails['data']["gateway_response"];
-//        $dclient = Client::where('email', $email)->first();
-//
-//        $reference = $paymentDetails['data']["reference"];
-//        $payment = Payment::where('reference', $reference)->first();
-//
-//        if($status==="success"){
-//
-//            $payment->status = $status;
-//            $payment->ends = time();
-//            $payment->gateway_message = $response;
-//
-//            $payment->update();
-//
-//            return redirect()->route('payment.result', ['payment'=>$response, 'unid'=>$dclient->unid, 'link'=>$payment->link]);
-//        }else{
-//
-//            $payment->status = $status;
-//            $payment->ends = time();
-//            $payment->gateway_message = $response;
-//
-//            $payment->update();
-//
-////            return redirect()->route('payment.result', ['payment'=>'failed', 'unid'=>$dclient->unid]);
-//
-//        }
+        $email = $paymentDetails['data']['customer']['email'];
+        $status = $paymentDetails['data']['status'];
+        $response = "failed";
+        $response = $paymentDetails['data']["gateway_response"];
+        $dclient = Client::where('email', $email)->first();
+
+        $reference = $paymentDetails['data']["reference"];
+        $payment = Payment::where('reference', $reference)->first();
+
+        if($status==="success"){
+
+            $payment->status = $status;
+            $payment->ends = time();
+            $payment->gateway_message = $response;
+
+            $payment->update();
+
+            return redirect()->route('payment.result', ['payment'=>$response, 'unid'=>$dclient->unid, 'link'=>$payment->link]);
+        }else{
+
+            $payment->status = $status;
+            $payment->ends = time();
+            $payment->gateway_message = $response;
+
+            $payment->update();
+
+            return redirect()->route('payment.result', ['payment'=>'failed', 'unid'=>$dclient->unid]);
+
+        }
 
 
-//        return redirect()->route('payment.result', ['payment'=>$response, 'unid'=>$dclient->unid]);
+        return redirect()->route('payment.result', ['payment'=>$response, 'unid'=>$dclient->unid]);
 
         //
 
@@ -176,7 +176,7 @@ class PaymentController extends Controller
 
     public function paystackResponse(Request $request){
 
-        return $request->all();
+//        return $request->all();
 
         $status = $request->input('payment');
 
