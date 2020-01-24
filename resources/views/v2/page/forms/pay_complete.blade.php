@@ -18,8 +18,9 @@
                        <div class="" style="padding: 10px 20px; margin: 0; line-height: 30px">
                            <h5 class="mt-3 mb-3"><b> {{ ucfirst($course->title) }} </b></h5>
                            @if($course->pay)
-                               <h5 class="mt-3 mb-0"><b>{{ $pay }}</b></h5>
-                               <h5 class="mt-3 mb-0"><b>Cost: ₦ {{ ucfirst($course->price) }}  </b></h5>
+                               <h5 class="mt-3 mb-0"><b>{!! $pay !!}</b></h5>
+                               <hr>
+                               <h5 class="mt-3 mb-0"><b>Paid : ₦ {{ ucfirst($course->price) }}  </b></h5>
                                <br>
                            @endif
 
@@ -41,7 +42,8 @@
                                Confirm Payment for {{ $course->title }}
                            </h3>
                            <hr>
-                           <h3>{{ $pay }}</h3>
+                           <h3>{!! $pay !!}</h3>
+                           <p>{{ $message }}</p>
 
                            <hr>
                            <small>Personal Information | Information About Yourself</small>

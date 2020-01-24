@@ -9,7 +9,7 @@ use App\Pform;
 use Illuminate\Http\Request;
 use Unicodeveloper\Paystack\Facades\Paystack;
 
-class PaymentController extends Controller
+class PaymentController extends MyController
 {
     /**
      * Display a listing of the resource.
@@ -145,6 +145,7 @@ class PaymentController extends Controller
 
         $reference = $paymentDetails['data']["reference"];
         $payment = Payment::where('reference', $reference)->first();
+        $course = Detail::where('link', $payment->link)->first();
 
         if($status === "success"){
 
@@ -153,6 +154,30 @@ class PaymentController extends Controller
             $payment->gateway_message = $response;
 
             $payment->update();
+
+            $message =
+                "<h1>Hi $dclient->names !</h1>
+                         <p>Your payment for the course: $course->title, was successful with Smile Planet Hub (SPH).</p>
+                         
+                         <p>Your schedule is undergoing development and you will be contacted within two working days.</p>
+                         
+                         <p>You can reach us on +234 703 324 1426 for any questions or send us an email to <a href='mailto:mails@smileplanetef.org'>mails@smileplanetef.org.</a></p>
+                         <br>
+                         
+                         <br>
+                         
+                         <p>Regards</p>
+                         <p>Smile Planet Hub</p>
+                         ";
+
+            $object = [
+                'email'=>$dclient->email,
+                'title'=>"Course Registration Payment with Smile Planet Hub",
+                'content'=>$message,
+                'view'=>"mail.course_reg",
+                'subject'=>'Course Registration Payment Successful.'
+            ];
+            $this->sendEmail($object);
 
             return redirect()->route('payment.result', ['payment'=>$response, 'unid'=>$dclient->unid, 'link'=>$payment->link]);
         }else{
@@ -188,10 +213,11 @@ class PaymentController extends Controller
         $message = "";
         $pay = "";
         if($status==='Successful'){
-            $pay = "Payment Successful";
+            $pay = "<span class='text-success'>Payment Successful</span>";
             $message .= "Congratulations! Your payment was successful. Find receipts in mailbox";
         }else{
-            $pay = "Payment Failed";
+
+            $pay = "<span class='text-danger'>Payment Failed</span>";
             $message .= "Oops! Your payment request failed. Kindly try again.";
         }
 
