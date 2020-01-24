@@ -134,7 +134,7 @@ class PaymentController extends Controller
 
         $paymentDetails = Paystack::getPaymentData();
 
-        dd($paymentDetails);
+//        dd($paymentDetails);
 
 //        //handle all required callbacks
         $email = $paymentDetails['data']['customer']['email'];
