@@ -186,14 +186,18 @@ class PaymentController extends Controller
         $form = Pform::where('email', $client->email)->where('detail_link',$link)->first();
         $course = Detail::where('link',$link)->first();
         $message = "";
+        $pay = "";
         if($status==='success'){
+            $pay = "Payment Successful";
             $message .= "Congratulations! Your payment was successful. Find receipts in mailbox";
         }else{
+            $pay = "Payment Failed";
             $message .= "Oops! Your payment request failed. Kindly try again.";
         }
 
         return view('v2.page.forms.pay_complete')
             ->with('client', $client)
+            ->with('pay', $pay)
             ->with('form', $form)
             ->with('course', $course)
             ->with('message', $message);

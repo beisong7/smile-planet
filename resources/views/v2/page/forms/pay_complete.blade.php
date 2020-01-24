@@ -18,7 +18,7 @@
                        <div class="" style="padding: 10px 20px; margin: 0; line-height: 30px">
                            <h5 class="mt-3 mb-3"><b> {{ ucfirst($course->title) }} </b></h5>
                            @if($course->pay)
-                               <h5 class="mt-3 mb-0"><b>Complete Online Payment  </b></h5>
+                               <h5 class="mt-3 mb-0"><b>{{ $pay }}</b></h5>
                                <h5 class="mt-3 mb-0"><b>Cost: ₦ {{ ucfirst($course->price) }}  </b></h5>
                                <br>
                            @endif
@@ -40,7 +40,8 @@
                            <h3 class="text-muted mb-0">
                                Confirm Payment for {{ $course->title }}
                            </h3>
-                           <p>Smile Planet Course Payment Portal</p>
+                           <hr>
+                           <h3>{{ $pay }}</h3>
 
                            <hr>
                            <small>Personal Information | Information About Yourself</small>
@@ -71,7 +72,7 @@
                            <div class="form-group ">
                                <div class="row">
                                    <div class="col-6">
-                                       <button type="submit" class="btn btn-secondary btn-block" style="border-radius: 0">Pay Now </button>
+                                       <a href="{{ route('home') }}" class="btn btn-secondary btn-block" style="border-radius: 0">Continue</a>
 
                                    </div>
                                </div>
