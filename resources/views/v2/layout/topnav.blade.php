@@ -19,7 +19,7 @@
                             <div class="top_bar_login ml-auto">
                                 <ul>
                                     {{--<li><a href="#">Register</a></li>--}}
-                                    {{--<li><a href="#">Login</a></li>--}}
+                                    <li><a href="{{ route('staff.login') }}">Login</a></li>
                                 </ul>
                             </div>
                         </div>
