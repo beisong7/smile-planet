@@ -13,8 +13,10 @@
         <a href="{{ route('people.index') }}" class="list-group-item <?=@$active['people'] ?>"><span class="fa fa-user-circle"></span> <span class="linkname">People</span></a>
     @endif
 
-    @if(intval(Auth::user()->who)===4 || Auth::user()->job==='HRO')
+    @if(intval(Auth::user()->who)===4 || Auth::user()->job==='')
         <a href="{{ route('console.app.fac') }}" class="list-group-item <?=@$active['application'] ?>"><span class="fa fa-external-link-square"></span> <span class="linkname">Applications</span></a>
+    @else
+        <a href="{{ route('console.enrollment') }}" class="list-group-item <?=@$active['application'] ?>"><span class="fa fa-external-link-square"></span> <span class="linkname">Applications</span></a>
     @endif
 
     @if(intval(Auth::user()->who)===4 || Auth::user()->job==='')

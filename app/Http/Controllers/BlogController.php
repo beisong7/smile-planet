@@ -214,14 +214,14 @@ class BlogController extends Controller
      */
     public function destroy(Blog $blog)
     {
-        if(count($blog)>0){
+        if(!empty($blog)){
             if($blog->delete()){
                 return back()->withMessage('Blog List Updated');
             }else{
                 return back();
             }
         }else{
-            return back();
+            return back()->withErrors(array('errors'=>'records not found'));
         }
     }
 

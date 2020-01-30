@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Faq;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class FaqController extends Controller
 {
@@ -14,9 +15,14 @@ class FaqController extends Controller
      */
     public function index()
     {
-        $faqs = Faq::paginate(25);
-        return view('admin.pages.faq.index')
-            ->with('faqs',$faqs);
+        if(intval(Auth::user()->who)===4 || Auth::user()->job === 'HRO'){
+            $faqs = Faq::paginate(25);
+            return view('admin.pages.faq.index')
+                ->with('faqs',$faqs);
+        }else{
+            return back();
+        }
+
     }
 
     /**

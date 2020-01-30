@@ -15,9 +15,14 @@ class SliderController extends Controller
      */
     public function index()
     {
-        $sliders = Slider::paginate(20);
-        return view('admin.pages.slider.index')
-            ->with('sliders', $sliders);
+        if(intval(Auth::user()->who)===4 || Auth::user()->job === 'HRO'){
+            $sliders = Slider::paginate(20);
+            return view('admin.pages.slider.index')
+                ->with('sliders', $sliders);
+        }else{
+            return back();
+        }
+
     }
 
     /**

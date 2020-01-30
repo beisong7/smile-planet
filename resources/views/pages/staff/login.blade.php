@@ -16,12 +16,12 @@ $jslinks = ['login.js'];
                     {{ csrf_field() }}
                     <div class="form-group">
                         <p>ID<i class="fa fa-user-circle pull-right"></i></p>
-                        <input name="access" type="text" class="form-control" value="{{ old('access') }}" style="border-radius: 0px">
+                        <input name="access" type="text" class="form-control" value="{{ old('access') }}" style="border-radius: 0px" placeholder="Username or Phone Number">
                     </div>
 
                     <div class="form-group">
                         <p>Password <i class="fa fa-key pull-right"></i></p>
-                        <input name="password" type="password" class="form-control" style="border-radius: 0px">
+                        <input name="password" type="password" class="form-control" style="border-radius: 0px" placeholder="Password">
                     </div>
                     <div class="form-group">
                         <button class="btn btn-info" style="border-radius: 0px" type="submit">LOGIN</button>

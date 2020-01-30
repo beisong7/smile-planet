@@ -420,13 +420,12 @@ class ConsoleController extends Controller
         $data = $request->all();
         $email = $data['email'];
         $username = $data['username'];
-        $count = User::where('email', $email)->first();
-        $count2 = User::where('username', $username)->first();
+        $exist = User::where('email', $email)->where('username', $username)->first();
         $salt_reg = $this->makeSalt();
         $data['dsalt'] = $salt_reg;
         $data['password'] = $request->input('password');
         $data['ptoken'] = hash('sha256', $salt_reg . $request->input('password'));
-        if(count($count) > 0 || count($count2)){
+        if(!empty($exist)){
             return back()->withErrors(array('message'=> 'Oops! An admin already exist with the given credentials'));
         }else{
             if(User::create($data)){
@@ -449,7 +448,7 @@ class ConsoleController extends Controller
 
     public function ashowadmin(User $user){
         if(Auth::user()->who >3 || Auth::user()->id === $user->id){
-            if(count($user)>0){
+            if(!empty($user)){
                 return view('admin.pages.admin.preview')->with('admin',$user);
             }else{
                 return back();
