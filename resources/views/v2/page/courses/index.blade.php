@@ -30,15 +30,11 @@
                                             <img src="{{ url('uploads/'.$course->image) }}" alt="course_img_{{ $course->title }}" class="img-fit">
                                         </div>
                                         <div class="course_body">
-                                            <div class="course_header d-flex flex-row align-items-center justify-content-start">
+                                                <div class="course_header d-flex flex-row align-items-center justify-content-start">
                                                 @if($course->use_reg==='yes')
 
                                                     <div class="course_tag">
-                                                        @if($course->pay)
-                                                            <a href="{{ route('detail.course.reg', [$course->link, $course->type])  }}">Enroll - ₦ {{ $course->price }}</a>
-                                                        @else
-                                                            <a href="{{ route('detail.course.reg', [$course->link, $course->type])  }}">Enroll</a>
-                                                        @endif
+                                                        <a href="{{ route('detail.course.reg', [$course->link, $course->type])  }}">Enroll</a>
                                                     </div>
 
 
@@ -48,7 +44,12 @@
                                                 @endif
                                                 {{--<div class="course_price ml-auto">Price: <span>$35</span></div>--}}
                                             </div>
-                                            <div class="course_title"><h3><a href="{{ route('home.about',['type'=>$course->type, 'link'=>$course->link ]) }}">{{ $course->title }}</a></h3></div>
+                                            @if($course->use_reg==='yes')
+                                                <h4 class="mt-1 ml-1">
+                                                    {{ $course->pay?'₦ '.number_format($course->price):'' }}
+                                                </h4>
+                                            @endif
+                                            <div class="course_title mt-3"><h3><a href="{{ route('home.about',['type'=>$course->type, 'link'=>$course->link ]) }}">{{ $course->title }}</a></h3></div>
                                             <div class="course_text">{{ $course->info(20) }}</div>
                                             <div class="course_footer d-flex align-items-center justify-content-start">
                                                 <div class="course_author_image"><img src="{{ url('v2/images/logo.png') }}" alt="logo"></div>

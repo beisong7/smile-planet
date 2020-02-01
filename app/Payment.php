@@ -21,4 +21,14 @@ class Payment extends Model
         'link',
         'email',
     ];
+
+    public function client(){
+        return $this->hasOne(Client::class, 'unid', 'client_key');
+    }
+
+    public function purpose(){
+        return $this->hasOne(Detail::class, 'link', 'link');
+    }
+
+
 }

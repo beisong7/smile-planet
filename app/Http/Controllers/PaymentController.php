@@ -19,6 +19,9 @@ class PaymentController extends MyController
     public function index()
     {
         //
+        $payment = Payment::paginate(30);
+        return view('admin.pages.payment.index')
+            ->with('payments', $payment);
     }
 
     /**
@@ -114,7 +117,8 @@ class PaymentController extends MyController
         $payment->unid = uniqid('_PAY', false);
         $payment->reference = $request->input('reference');
         $payment->kobo =  $request->input('amount');
-        $payment->amount =  $request->input('amount');
+        $amount = $request->input('amount');
+        $payment->amount =  $amount/100;
         $payment->success = false;
         $payment->link = $request->input('link');
         $payment->email = $request->input('email');

@@ -174,6 +174,8 @@ Route::group(['middleware'=> 'admin'], function(){
 
     Route::post('/upload' , 'ConsoleController@upload')->name('upload');
 
+    Route::resource('/payment' , 'PaymentController');
+
     Route::get('/console/dashboard', 'ConsoleController@dashboard')->name('console.home');
 
     Route::get('/console/dashboard/memo', 'MemoController@makemail')->name('console.makemail');

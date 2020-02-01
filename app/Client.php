@@ -30,4 +30,5 @@ class Client extends Authenticatable
         'creator_key',
     ];
 
+
 }

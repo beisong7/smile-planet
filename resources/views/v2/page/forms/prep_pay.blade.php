@@ -50,7 +50,7 @@
                            <input type="hidden" name="reference" value="{{ \Unicodeveloper\Paystack\Facades\Paystack::genTranxRef() }}"> {{-- required --}}
                            <input type="hidden" name="key" value="{{ config('paystack.secretKey') }}"> {{-- required --}}
                            <input type="hidden" name="link" value="{{ $course->link }}"> {{-- required for smile planet --}}
-                           <input type="hidden" name="client_key" value="{{ $course->unid }}"> {{-- required for smile planet --}}
+                           <input type="hidden" name="client_key" value="{{ $client->unid }}"> {{-- required for smile planet --}}
 
 
 

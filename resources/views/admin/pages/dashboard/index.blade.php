@@ -43,6 +43,20 @@
     </div>
     <br>
     <div class="row">
+        @if(intval(Auth::user()->who)===4)
+            <div class="col-sm-3">
+                <div class="panel panel-default material-panel lite-gray-bg">
+                    <a href="{{ route('payment.index') }}">
+                        <div class="panel-body">
+
+                            <p class="text-center" style="margin: 0;padding: 0"><i class="fa fa-money" style="font-size: 50px; color: rgba(11,172,8,0.92)"></i></p>
+                            <br>
+                            <h1 class="text-center">Payments</h1>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        @endif
         <div class="col-sm-3">
             <div class="panel panel-default material-panel lite-gray-bg">
                 <a href="{{ route('console.courses') }}">
@@ -127,6 +141,7 @@
                 </a>
             </div>
         </div>
+
 
     </div>
 
