@@ -126,11 +126,15 @@ class PaymentController extends MyController
         $payment->start = time();
         $payment->client_key = $request->input('client_key');
         $payment->save();
+
         try{
 
             return Paystack::getAuthorizationUrl()->redirectNow();
+
         }catch (\Exception $e){
+
             return back()->withErrors(array('errors'=>'Oops! Unable to complete. Please try again shortly.'));
+
         }
     }
 

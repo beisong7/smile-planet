@@ -30,11 +30,11 @@ RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ 
 
     #Add secure - SSL connction
 
-    RewriteCond %{HTTPS} off
+#    RewriteCond %{HTTPS} off
 RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
 RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/(?:\ Ballot169)?
 RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
-    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+#    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301
 
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
@@ -48,5 +48,5 @@ RewriteCond %{HTTP_HOST} ^www\.smileplanetef\.org$
 RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
 RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/(?:\ Ballot169)?
 RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
-RewriteRule ^mails\/?(.*)$ "https\:\/\/smileplanetef\.org\/webmail$1" [R=301,L]
+RewriteRule ^mails\/?(.*)$ "http\:\/\/smileplanetef\.org\/webmail$1" [R=301,L]
 
